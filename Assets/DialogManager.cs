@@ -12,13 +12,21 @@ public class Dialog
 public class DialogManager : MonoBehaviour
 {
 
-    public TextMeshProUGUI textBox;
+    public string text = "test text? is being, typed";
+
+    public TextDisplayer textDisplayer;
 
     private IEnumerator coroutine;
 
+    private string punctuation = "!?.,;:";
+
+    private void Awake()
+    {
+        coroutine = PrintDialog(text, 0.1f, 0.2f);
+    }
+
     private void Start()
     {
-        coroutine = PrintDialog("Hello. my name is olivier!", 0.1f, 0.2f);
         StartCoroutine(coroutine);
     }
 
@@ -27,7 +35,7 @@ public class DialogManager : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             StopCoroutine(coroutine);
-            textBox.text = "Hello. my name is olivier!";
+            textDisplayer.UpdateText(text.ToUpper());
         }
 
 
@@ -43,9 +51,9 @@ public class DialogManager : MonoBehaviour
         {
             printText += character;
 
-            textBox.text = printText;
+            textDisplayer.UpdateText(printText.ToUpper());
 
-            if (character == '.' || character == '?' || character == '!' || character == ',')
+            if (punctuation.Contains(character))
             {
                 yield return new WaitForSeconds(punctuationDelay);
             }
