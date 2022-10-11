@@ -11,7 +11,6 @@ public class Dialog
 
 public class DialogManager : MonoBehaviour
 {
-
     public string text = "test text? is being, typed";
 
     public TextDisplayer textDisplayer;
