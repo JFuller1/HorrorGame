@@ -1167,20 +1167,18 @@ MonoBehaviour:
   CollisionTag: 
   EventReference:
     Guid:
-      Data1: -1147629186
-      Data2: 1106302555
-      Data3: 130402976
-      Data4: 239065686
-    Path: event:/Ambience/City
+      Data1: -510534240
+      Data2: 1265626357
+      Data3: -325712452
+      Data4: -1123932245
+    Path: event:/Music/Test
   Event: 
   PlayEvent: 1
   StopEvent: 0
   AllowFadeout: 1
   TriggerOnce: 0
   Preload: 0
-  Params:
-  - Name: Traffic
-    Value: 0.298
+  Params: []
   OverrideAttenuation: 0
   OverrideMinDistance: 1
   OverrideMaxDistance: 20
