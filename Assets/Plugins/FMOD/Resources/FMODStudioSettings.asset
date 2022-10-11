@@ -359,8 +359,8 @@ MonoBehaviour:
   switchSettingsMigration: 1
   HasSourceProject: 1
   HasPlatforms: 1
-  sourceProjectPath: ../../FMOD Studio/RandomTest/RandomTest.fspro
-  sourceBankPath: ../../FMOD Studio/RandomTest/Build
+  sourceProjectPath: ../../FMOD Studio/HorrorHouseMusic/HorrorHouseMusic.fspro
+  sourceBankPath: ../../FMOD Studio/HorrorHouseMusic/Build
   sourceBankPathUnformatted: 
   BankRefreshCooldown: 5
   ShowBankRefreshWindow: 1
