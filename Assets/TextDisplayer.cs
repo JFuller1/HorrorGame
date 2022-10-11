@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class TextDisplayer : MonoBehaviour
 {
+    public Material mat;
     public CustomFont font;
 
     public string charSet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ.,!?";
@@ -14,9 +15,9 @@ public class TextDisplayer : MonoBehaviour
 
     int textRows = 2;
 
-
-    private void Start()
+    private void Awake()
     {
+
         for (int i = 0; i < charSet.Length; i++)
         {
             fontTranslator.Add(charSet[i], font.characters[i]);
@@ -27,19 +28,21 @@ public class TextDisplayer : MonoBehaviour
         Debug.Log(Mathf.FloorToInt(transform.localScale.x));
 
         Setup();
-
     }
 
     public void Setup()
     {
+        int i = 1;
+
         for (int y = textRows; y > 0; y--)
         {
             for (int x = 0; x < Mathf.FloorToInt(transform.localScale.x); x++)
-            {
-                int i = 1;
+            {                
                 GameObject newObject = new GameObject(i.ToString());
                 i++;
                 SpriteRenderer renderer = newObject.AddComponent<SpriteRenderer>();
+                
+                renderer.material = mat;
 
                 float xPos = x - (Mathf.FloorToInt(transform.localScale.x)/2f) +0.5f;
                 newObject.transform.position = new Vector2(xPos, y - (Camera.main.orthographicSize + 0.5f));
@@ -50,17 +53,19 @@ public class TextDisplayer : MonoBehaviour
 
     public void UpdateText(string text)
     {
+
         for (int i = 0; i < text.Length; i++)
         {
-            
+            Sprite temp;
 
-            if (text[i] == ' ')
+            if (charSet.Contains(text[i]))
             {
-                continue;
+                fontTranslator.TryGetValue(text[i], out temp);
+                sprites[i].sprite = temp;
             }
             else
             {
-                sprites[i].sprite = fontTranslator[text[i]];
+                continue;
             }
         }
     }

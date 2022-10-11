@@ -589,6 +589,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d43460916b7940d4ab8a0c93161c85c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mat: {fileID: 2100000, guid: da524150b78f6e14784174db9dd21de2, type: 2}
   font: {fileID: 11400000, guid: 31928461793cc95478a5039adec4ba28, type: 2}
   charSet: ABCDEFGHIJKLMNOPQRSTUVWXYZ.,!?
   sprites: []
@@ -848,7 +849,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 10
+  orthographic size: 6
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
