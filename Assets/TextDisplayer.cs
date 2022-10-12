@@ -19,7 +19,6 @@ public class TextDisplayer : MonoBehaviour
 
     private void Awake()
     {
-
         for (int i = 0; i < charSet.Length; i++)
         {
             fontTranslator.Add(charSet[i], font.characters[i]);
@@ -30,6 +29,14 @@ public class TextDisplayer : MonoBehaviour
         Debug.Log(Mathf.FloorToInt(transform.localScale.x));
 
         Setup();
+    }
+
+    public void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            FMODUnity.RuntimeManager.PlayOneShot(dialogSounds[0]);
+        }
     }
 
     public void Setup()
@@ -80,7 +87,8 @@ public class TextDisplayer : MonoBehaviour
 
     public void TextSound()
     {
-        FMODUnity.RuntimeManager.PlayOneShot(dialogSounds[0]);
+        int soundNum = Random.Range(0, dialogSounds.Length);
+        FMODUnity.RuntimeManager.PlayOneShot(dialogSounds[soundNum]);
     }
 
 }
