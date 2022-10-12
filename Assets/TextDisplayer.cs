@@ -46,20 +46,21 @@ public class TextDisplayer : MonoBehaviour
 
         for (int y = textRows; y > 0; y--)
         {
-            for (int x = 0; x < Mathf.FloorToInt(transform.localScale.x); x++)
-            {
-            for (int x = 0; x < textcolumns; x++)
-            {                
-                GameObject newObject = new GameObject(i.ToString());
-                i++;
-                SpriteRenderer renderer = newObject.AddComponent<SpriteRenderer>();
-                
-                renderer.material = mat;
 
-                float xPos = x - (textcolumns/2f) +0.5f;
-                newObject.transform.position = new Vector2(xPos, y - (Camera.main.orthographicSize + 0.5f));
-                sprites.Add(renderer);
-            }
+            //for (int x = 0; x < Mathf.FloorToInt(transform.localScale.x); x++)
+            //{
+                for (int x = 0; x < textcolumns; x++)
+                {
+                    GameObject newObject = new GameObject(i.ToString());
+                    i++;
+                    SpriteRenderer renderer = newObject.AddComponent<SpriteRenderer>();
+
+                    renderer.material = mat;
+
+                    float xPos = x - (textcolumns / 2f) + 0.5f;
+                    newObject.transform.position = new Vector2(xPos, y - (Camera.main.orthographicSize + 0.5f));
+                    sprites.Add(renderer);
+                }
         }
     }
 
@@ -102,11 +103,11 @@ public class TextDisplayer : MonoBehaviour
         }
     }
 
-
     public void TextSound()
     {
         int soundNum = Random.Range(0, dialogSounds.Length);
         FMODUnity.RuntimeManager.PlayOneShot(dialogSounds[soundNum]);
+    }
 
     public string ProcessedString(string inputString)
     {
@@ -125,9 +126,9 @@ public class TextDisplayer : MonoBehaviour
         else
         {
 
-            foreach(string str in tempArray)
+            foreach (string str in tempArray)
             {
-                if(compoundString.Length + str.Length <= textcolumns)
+                if (compoundString.Length + str.Length <= textcolumns)
                 {
                     compoundString += str + " ";
                 }
@@ -150,5 +151,4 @@ public class TextDisplayer : MonoBehaviour
 
         return outString;
     }
-
 }
