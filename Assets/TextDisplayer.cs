@@ -46,7 +46,6 @@ public class TextDisplayer : MonoBehaviour
 
         for (int y = textRows; y > 0; y--)
         {
-<<<<<<< HEAD
             //for (int x = 0; x < Mathf.FloorToInt(transform.localScale.x); x++)
             //{
                 for (int x = 0; x < textcolumns; x++)
@@ -54,17 +53,6 @@ public class TextDisplayer : MonoBehaviour
                     GameObject newObject = new GameObject(i.ToString());
                     i++;
                     SpriteRenderer renderer = newObject.AddComponent<SpriteRenderer>();
-=======
-            for (int x = 0; x < Mathf.FloorToInt(transform.localScale.x); x++)
-            {
-            for (int x = 0; x < textcolumns; x++)
-            {                
-                GameObject newObject = new GameObject(i.ToString());
-                i++;
-                SpriteRenderer renderer = newObject.AddComponent<SpriteRenderer>();
-                
-                renderer.material = mat;
->>>>>>> ef2d3d0a24fe87f5227306501e9a27432d92acb0
 
                     renderer.material = mat;
 
@@ -72,7 +60,7 @@ public class TextDisplayer : MonoBehaviour
                     newObject.transform.position = new Vector2(xPos, y - (Camera.main.orthographicSize + 0.5f));
                     sprites.Add(renderer);
                 }
-            //}
+            }
         }
     }
 
@@ -115,18 +103,11 @@ public class TextDisplayer : MonoBehaviour
         }
     }
 
-<<<<<<< HEAD
-=======
-
->>>>>>> ef2d3d0a24fe87f5227306501e9a27432d92acb0
     public void TextSound()
     {
         int soundNum = Random.Range(0, dialogSounds.Length);
         FMODUnity.RuntimeManager.PlayOneShot(dialogSounds[soundNum]);
-<<<<<<< HEAD
     }
-=======
->>>>>>> ef2d3d0a24fe87f5227306501e9a27432d92acb0
 
     public string ProcessedString(string inputString)
     {
