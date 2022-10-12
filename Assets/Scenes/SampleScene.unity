@@ -558,7 +558,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a76a2554fa58be445ad9c6326c7d729d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text: test text? is being, typed
+  text: test text? is perfectly typed!
   textDisplayer: {fileID: 883317668}
 --- !u!1 &883317667
 GameObject:
