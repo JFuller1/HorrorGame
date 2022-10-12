@@ -14,6 +14,7 @@ public class TextDisplayer : MonoBehaviour
     public List<SpriteRenderer> sprites = new List<SpriteRenderer>();
 
     int textRows = 2;
+    int textcolumns;
 
     public string[] dialogSounds = { };
 
@@ -24,9 +25,9 @@ public class TextDisplayer : MonoBehaviour
             fontTranslator.Add(charSet[i], font.characters[i]);
         }
 
-        transform.localScale = new Vector2(Camera.main.orthographicSize * 2 * (16f / 9f), textRows);
+        textcolumns = Mathf.FloorToInt(Camera.main.orthographicSize * 2 * (16f / 9f));
 
-        Debug.Log(Mathf.FloorToInt(transform.localScale.x));
+        //Debug.Log(Mathf.FloorToInt(transform.localScale.x));
 
         Setup();
     }
@@ -47,13 +48,15 @@ public class TextDisplayer : MonoBehaviour
         {
             for (int x = 0; x < Mathf.FloorToInt(transform.localScale.x); x++)
             {
+            for (int x = 0; x < textcolumns; x++)
+            {                
                 GameObject newObject = new GameObject(i.ToString());
                 i++;
                 SpriteRenderer renderer = newObject.AddComponent<SpriteRenderer>();
                 
                 renderer.material = mat;
 
-                float xPos = x - (Mathf.FloorToInt(transform.localScale.x)/2f) +0.5f;
+                float xPos = x - (textcolumns/2f) +0.5f;
                 newObject.transform.position = new Vector2(xPos, y - (Camera.main.orthographicSize + 0.5f));
                 sprites.Add(renderer);
             }
@@ -68,27 +71,84 @@ public class TextDisplayer : MonoBehaviour
         {
             TextSound();
         }
+        /*
+              ______     ____  _             
+             |___  /    |  _ \| |            
+                / / __ _| |_) | | ___   ___  
+               / / / _` |  _ <| |/ _ \ / _ \ 
+              / /_| (_| | |_) | | (_) | (_) |
+             /_____\__,_|____/|_|\___/ \___/                                  
+             put the sound trigger for the text sounds here
+        */
 
-        for (int i = 0; i < text.Length; i++)
+        string formatedText = ProcessedString(text);
+
+        //Debug.Log(formatedText);
+
+        for (int i = 0; i < formatedText.Length; i++)
         {
             Sprite temp;
 
-            if (charSet.Contains(text[i]))
+            if (charSet.Contains(formatedText[i]))
             {
-                fontTranslator.TryGetValue(text[i], out temp);
+                fontTranslator.TryGetValue(formatedText[i], out temp);
                 sprites[i].sprite = temp;
             }
             else
             {
+                sprites[i].sprite = null;
                 continue;
             }
         }
     }
 
+
     public void TextSound()
     {
         int soundNum = Random.Range(0, dialogSounds.Length);
         FMODUnity.RuntimeManager.PlayOneShot(dialogSounds[soundNum]);
+
+    public string ProcessedString(string inputString)
+    {
+        string outString = "";
+        string compoundString = "";
+        string tempString = inputString.Trim(); ;
+
+        string[] tempArray;
+
+        tempArray = tempString.Split(' ');
+
+        if (tempString.Length <= textcolumns)
+        {
+            outString = tempString;
+        }
+        else
+        {
+
+            foreach(string str in tempArray)
+            {
+                if(compoundString.Length + str.Length <= textcolumns)
+                {
+                    compoundString += str + " ";
+                }
+                else
+                {
+                    compoundString = compoundString.Trim();
+                    compoundString = compoundString.PadRight(textcolumns, ' ');
+
+                    outString += compoundString;
+                    compoundString = str + " ";
+                }
+            }
+
+            compoundString = compoundString.Trim();
+            compoundString = compoundString.PadRight(textcolumns, ' ');
+
+            outString += compoundString;
+
+        }
+
+        return outString;
     }
 
 }
