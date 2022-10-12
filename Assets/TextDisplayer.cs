@@ -46,6 +46,7 @@ public class TextDisplayer : MonoBehaviour
 
         for (int y = textRows; y > 0; y--)
         {
+
             //for (int x = 0; x < Mathf.FloorToInt(transform.localScale.x); x++)
             //{
                 for (int x = 0; x < textcolumns; x++)
@@ -60,7 +61,6 @@ public class TextDisplayer : MonoBehaviour
                     newObject.transform.position = new Vector2(xPos, y - (Camera.main.orthographicSize + 0.5f));
                     sprites.Add(renderer);
                 }
-            }
         }
     }
 
