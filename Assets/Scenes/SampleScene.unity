@@ -593,6 +593,8 @@ MonoBehaviour:
   font: {fileID: 11400000, guid: 31928461793cc95478a5039adec4ba28, type: 2}
   charSet: ABCDEFGHIJKLMNOPQRSTUVWXYZ.,!?
   sprites: []
+  dialogSounds:
+  - event:/Dialogue/e
 --- !u!4 &883317669
 Transform:
   m_ObjectHideFlags: 0

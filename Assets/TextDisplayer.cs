@@ -15,6 +15,8 @@ public class TextDisplayer : MonoBehaviour
 
     int textRows = 2;
 
+    public string[] dialogSounds = { };
+
     private void Awake()
     {
 
@@ -37,7 +39,7 @@ public class TextDisplayer : MonoBehaviour
         for (int y = textRows; y > 0; y--)
         {
             for (int x = 0; x < Mathf.FloorToInt(transform.localScale.x); x++)
-            {                
+            {
                 GameObject newObject = new GameObject(i.ToString());
                 i++;
                 SpriteRenderer renderer = newObject.AddComponent<SpriteRenderer>();
@@ -53,6 +55,12 @@ public class TextDisplayer : MonoBehaviour
 
     public void UpdateText(string text)
     {
+        // Play sound if its a letter
+
+        if (System.Char.IsLetter(text[text.Length - 1]))
+        {
+            TextSound();
+        }
 
         for (int i = 0; i < text.Length; i++)
         {
@@ -68,6 +76,11 @@ public class TextDisplayer : MonoBehaviour
                 continue;
             }
         }
+    }
+
+    public void TextSound()
+    {
+        FMODUnity.RuntimeManager.PlayOneShot(dialogSounds[0]);
     }
 
 }
