@@ -16,9 +16,10 @@ public class TextDisplayer : MonoBehaviour
     int textRows = 2;
     int textcolumns;
 
+    public string[] dialogSounds = { };
+
     private void Awake()
     {
-
         for (int i = 0; i < charSet.Length; i++)
         {
             fontTranslator.Add(charSet[i], font.characters[i]);
@@ -31,12 +32,22 @@ public class TextDisplayer : MonoBehaviour
         Setup();
     }
 
+    public void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            FMODUnity.RuntimeManager.PlayOneShot(dialogSounds[0]);
+        }
+    }
+
     public void Setup()
     {
         int i = 1;
 
         for (int y = textRows; y > 0; y--)
         {
+            for (int x = 0; x < Mathf.FloorToInt(transform.localScale.x); x++)
+            {
             for (int x = 0; x < textcolumns; x++)
             {                
                 GameObject newObject = new GameObject(i.ToString());
@@ -54,6 +65,12 @@ public class TextDisplayer : MonoBehaviour
 
     public void UpdateText(string text)
     {
+        // Play sound if its a letter
+
+        if (System.Char.IsLetter(text[text.Length - 1]))
+        {
+            TextSound();
+        }
         /*
               ______     ____  _             
              |___  /    |  _ \| |            
@@ -84,6 +101,12 @@ public class TextDisplayer : MonoBehaviour
             }
         }
     }
+
+
+    public void TextSound()
+    {
+        int soundNum = Random.Range(0, dialogSounds.Length);
+        FMODUnity.RuntimeManager.PlayOneShot(dialogSounds[soundNum]);
 
     public string ProcessedString(string inputString)
     {

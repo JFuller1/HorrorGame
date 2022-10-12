@@ -15,10 +15,10 @@ MonoBehaviour:
   Path: ../../FMOD Studio/HorrorHouseMusic/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638010841967110051
+  lastModified: 638011690090165707
   FileSizes:
   - Name: Desktop
-    Value: 760
+    Value: 920
   Exists: 1
 --- !u!114 &-315384749825812098
 MonoBehaviour:
@@ -40,13 +40,40 @@ MonoBehaviour:
     Data4: -1123932245
   Banks:
   - {fileID: 8548296630681603687}
-  IsStream: 1
+  IsStream: 0
   Is3D: 0
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
   Length: 208013
+--- !u!114 &-177175014374671036
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Dialogue/o
+  m_EditorClassIdentifier: 
+  Path: event:/Dialogue/o
+  Guid:
+    Data1: -489200335
+    Data2: 1175831234
+    Data3: 1595163777
+    Data4: 1767247092
+  Banks:
+  - {fileID: 8548296630681603687}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 100
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -64,13 +91,98 @@ MonoBehaviour:
   - {fileID: 8548296630681603687}
   EditorEvents:
   - {fileID: -315384749825812098}
+  - {fileID: 4717705948145844843}
+  - {fileID: -177175014374671036}
+  - {fileID: 7383657283543529430}
+  - {fileID: 3586792793143109498}
   EditorParameters: []
   MasterBanks:
   - {fileID: 8548296630681603687}
   StringsBanks:
   - {fileID: -6098089767956075073}
-  cacheTime: 638010841967110051
+  cacheTime: 638011690090165707
   cacheVersion: 131593
+--- !u!114 &3586792793143109498
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Dialogue/a
+  m_EditorClassIdentifier: 
+  Path: event:/Dialogue/a
+  Guid:
+    Data1: 1560025565
+    Data2: 1250600909
+    Data3: 1119381178
+    Data4: 908383953
+  Banks:
+  - {fileID: 8548296630681603687}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 100
+--- !u!114 &4717705948145844843
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Dialogue/e
+  m_EditorClassIdentifier: 
+  Path: event:/Dialogue/e
+  Guid:
+    Data1: -411517765
+    Data2: 1154208604
+    Data3: 903400613
+    Data4: 2026142206
+  Banks:
+  - {fileID: 8548296630681603687}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 100
+--- !u!114 &7383657283543529430
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Dialogue/u
+  m_EditorClassIdentifier: 
+  Path: event:/Dialogue/u
+  Guid:
+    Data1: -1856568700
+    Data2: 1111134168
+    Data3: 2052584592
+    Data4: 454159722
+  Banks:
+  - {fileID: 8548296630681603687}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 100
 --- !u!114 &8548296630681603687
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -86,8 +198,8 @@ MonoBehaviour:
   Path: ../../FMOD Studio/HorrorHouseMusic/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638010841967098043
+  lastModified: 638011690090145709
   FileSizes:
   - Name: Desktop
-    Value: 2606368
+    Value: 2663296
   Exists: 1
