@@ -19,7 +19,7 @@ MonoBehaviour:
     Data3: -325712452
     Data4: -1123932245
   Banks:
-  - {fileID: -16491011104194519}
+  - {fileID: 3885884791936315335}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -46,7 +46,7 @@ MonoBehaviour:
     Data3: 1595163777
     Data4: 1767247092
   Banks:
-  - {fileID: -16491011104194519}
+  - {fileID: 3885884791936315335}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -107,8 +107,8 @@ MonoBehaviour:
   m_Name: FMODStudioCache
   m_EditorClassIdentifier: 
   EditorBanks:
-  - {fileID: -18847097297644209}
-  - {fileID: -16491011104194519}
+  - {fileID: 2754768004663776352}
+  - {fileID: 3885884791936315335}
   EditorEvents:
   - {fileID: -315384749825812098}
   - {fileID: 4717705948145844843}
@@ -117,11 +117,31 @@ MonoBehaviour:
   - {fileID: 3586792793143109498}
   EditorParameters: []
   MasterBanks:
-  - {fileID: -16491011104194519}
+  - {fileID: 3885884791936315335}
   StringsBanks:
-  - {fileID: -18847097297644209}
-  cacheTime: 638012465400959498
+  - {fileID: 2754768004663776352}
+  cacheTime: 638012491948698570
   cacheVersion: 131593
+--- !u!114 &2754768004663776352
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.strings.bank
+  m_EditorClassIdentifier: 
+  Path: FMOD/HorrorHouseMusic/Build/Desktop/Master.strings.bank
+  Name: Master.strings
+  StudioPath: bank:/Master.strings
+  lastModified: 638012491948698570
+  FileSizes:
+  - Name: Desktop
+    Value: 920
+  Exists: 1
 --- !u!114 &3586792793143109498
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -141,7 +161,7 @@ MonoBehaviour:
     Data3: 1119381178
     Data4: 908383953
   Banks:
-  - {fileID: -16491011104194519}
+  - {fileID: 3885884791936315335}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -149,6 +169,26 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 100
+--- !u!114 &3885884791936315335
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: FMOD/HorrorHouseMusic/Build/Desktop/Master.bank
+  Name: Master
+  StudioPath: bank:/Master
+  lastModified: 638012491948678626
+  FileSizes:
+  - Name: Desktop
+    Value: 2663296
+  Exists: 1
 --- !u!114 &4717705948145844843
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -168,7 +208,7 @@ MonoBehaviour:
     Data3: 903400613
     Data4: 2026142206
   Banks:
-  - {fileID: -16491011104194519}
+  - {fileID: 3885884791936315335}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -195,7 +235,7 @@ MonoBehaviour:
     Data3: 2052584592
     Data4: 454159722
   Banks:
-  - {fileID: -16491011104194519}
+  - {fileID: 3885884791936315335}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
