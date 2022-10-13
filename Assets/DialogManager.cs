@@ -7,6 +7,9 @@ using FMODUnity;
 public class Dialog
 {    
     public string text;
+    public string voice;
+    public float delay;
+    public float volume;
 }
 
 [System.Serializable]
@@ -30,12 +33,22 @@ public class DialogManager : MonoBehaviour
 
     bool typing = false;
 
+    int num = 76;
+
     private void Awake()
     {
         dialogStrings = JsonUtility.FromJson<DialogStrings>(jsonFile.text);
 
+        foreach(Dialog dialog in dialogStrings.dialog)
+        {
+            Debug.Log($"text: {dialog.text}\n" +
+                $"voice: {dialog.voice}\n" +
+                $"delay: {dialog.delay}"
+                );
+        }
+
         //second value used to be 0.2
-        coroutine = PrintDialog(dialogStrings.dialog[currentMessage].text, 0.1f, 1f);
+        coroutine = PrintDialog(dialogStrings.dialog[currentMessage].text, dialogStrings.dialog[currentMessage].delay, 1f);
     }
 
     private void Start()
@@ -57,7 +70,7 @@ public class DialogManager : MonoBehaviour
                 currentMessage++;
                 // loads the correct message as dialogStrings.dialog[currentMessage].text
                 // something like textDisplayer.ResetText(); here
-                coroutine = PrintDialog(dialogStrings.dialog[currentMessage].text, 0.1f, 1f);
+                coroutine = PrintDialog(dialogStrings.dialog[currentMessage].text, dialogStrings.dialog[currentMessage].delay, 1f);
 
                 StartCoroutine(coroutine);
             }
@@ -71,7 +84,7 @@ public class DialogManager : MonoBehaviour
     IEnumerator PrintDialog(string text, float delay, float punctuationDelay)
     {
         typing = true;
-        string printText = "";
+        string printText = $"";
 
         foreach (char character in text)
         {
