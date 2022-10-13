@@ -57,7 +57,9 @@ public class DialogManager : MonoBehaviour
                 currentMessage++;
                 // loads the correct message as dialogStrings.dialog[currentMessage].text
                 // something like textDisplayer.ResetText(); here
-                // and then PrintDialog(dialogStrings.dialog[currentMessage].text, 0.1f, 1f);
+                coroutine = PrintDialog(dialogStrings.dialog[currentMessage].text, 0.1f, 1f);
+
+                StartCoroutine(coroutine);
             }
 
         }

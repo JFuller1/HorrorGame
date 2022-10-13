@@ -558,7 +558,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a76a2554fa58be445ad9c6326c7d729d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text: test text? is perfectly typed!
+  jsonFile: {fileID: 4900000, guid: 0582e8303d5621448af234a8f6ce6e74, type: 3}
   textDisplayer: {fileID: 883317668}
 --- !u!1 &883317667
 GameObject:
@@ -593,6 +593,7 @@ MonoBehaviour:
   font: {fileID: 11400000, guid: 31928461793cc95478a5039adec4ba28, type: 2}
   charSet: ABCDEFGHIJKLMNOPQRSTUVWXYZ.,!?
   sprites: []
+  textRows: 3
   dialogSoundsVowels:
   - event:/Dialogue/Cabby/a
   - event:/Dialogue/Cabby/e

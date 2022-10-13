@@ -13,7 +13,7 @@ public class TextDisplayer : MonoBehaviour
 
     public List<SpriteRenderer> sprites = new List<SpriteRenderer>();
 
-    int textRows = 2;
+    public int textRows = 2;
     int textcolumns;
 
     public string[] dialogSoundsVowels = { };
