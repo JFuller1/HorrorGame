@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{49183cca-d8f0-43d0-af0e-d1f7abd01670}">
+		<property name="assetPath">
+			<value>darkambientideathing1.mp3</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>208.0130612244898</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{8046fc6b-0229-4be9-bcd8-f8579814a267}</destination>
+		</relationship>
+	</object>
+</objects>
