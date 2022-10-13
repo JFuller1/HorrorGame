@@ -1,12 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
+using FMODUnity;
 
 [System.Serializable]
 public class Dialog
-{
-    public string[,] lines;
+{    
+    public string[] text;
+
+    [Range(0.01f, 2)]
+    public float textSpeed, PunctuationSpeed;
+
+    public string[] dialogSounds = { };
+
 }
 
 public class DialogManager : MonoBehaviour
