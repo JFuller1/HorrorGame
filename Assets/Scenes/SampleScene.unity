@@ -593,11 +593,11 @@ MonoBehaviour:
   font: {fileID: 11400000, guid: 31928461793cc95478a5039adec4ba28, type: 2}
   charSet: ABCDEFGHIJKLMNOPQRSTUVWXYZ.,!?
   sprites: []
-  dialogSounds:
-  - event:/Dialogue/e
-  - event:/Dialogue/a
-  - event:/Dialogue/o
-  - event:/Dialogue/u
+  dialogSoundsVowels:
+  - event:/Dialogue/Cabby/a
+  - event:/Dialogue/Cabby/e
+  - event:/Dialogue/Cabby/o
+  - event:/Dialogue/Cabby/u
 --- !u!4 &883317669
 Transform:
   m_ObjectHideFlags: 0
