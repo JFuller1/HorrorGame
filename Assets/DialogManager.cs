@@ -27,7 +27,7 @@ public class DialogManager : MonoBehaviour
 
     private void Awake()
     {
-        //second value used to be 2
+        //second value used to be 0.2
         coroutine = PrintDialog(text, 0.1f, 1f);
     }
 
