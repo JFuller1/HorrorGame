@@ -1,0 +1,19 @@
+{
+   "dialog":[
+      {
+         "text":"cab driver dialog here"
+      },
+      {
+         "text":"response from player"
+      },
+      {
+         "text":"break"
+      },
+      {
+         "text":"more dialog but only after you click"
+      },
+      {
+         "text":"a really long string of dialog to see if we can handle that oh my goodness gracious it just keeps on going doesn't it."
+      }
+   ]
+}
