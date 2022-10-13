@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TextDisplayer : MonoBehaviour
 {
-    public Material mat;
+    public Material defaultMat, ShakyMat;
     public CustomFont font;
 
     public string charSet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ.,!?";
@@ -61,7 +61,7 @@ public class TextDisplayer : MonoBehaviour
                     i++;
                     SpriteRenderer renderer = newObject.AddComponent<SpriteRenderer>();
 
-                    renderer.material = mat;
+                    //renderer.material = defaultMat;
 
                     float xPos = x - (textcolumns / 2f) + 0.5f;
                     newObject.transform.position = new Vector2(xPos, y - (Camera.main.orthographicSize + 0.5f));
@@ -97,7 +97,7 @@ public class TextDisplayer : MonoBehaviour
 
         string formatedText = ProcessedString(text);
 
-        //Debug.Log(formatedText);
+        formatedText = TextEffects(formatedText);
 
         for (int i = 0; i < formatedText.Length; i++)
         {
@@ -125,6 +125,36 @@ public class TextDisplayer : MonoBehaviour
         FMODUnity.RuntimeManager.PlayOneShot(dialogSoundsVowels[soundNum]);
     }
 
+    public string TextEffects(string inputString)
+    {
+
+        bool effect = false;
+
+        for (int i = 0; i < inputString.Length; i++)
+        {
+            if (inputString[i] == '*')
+            {
+                effect = !effect;
+            }
+
+
+            if (effect == true)
+            {
+                sprites[i].material = ShakyMat;
+            }
+            else
+            {
+                sprites[i].material = defaultMat;
+            }
+
+        }
+
+        inputString = inputString.Replace("*", "");
+
+        return inputString;
+
+    }
+
     public string ProcessedString(string inputString)
     {
         string outString = "";
@@ -134,6 +164,8 @@ public class TextDisplayer : MonoBehaviour
         string[] tempArray;
 
         tempArray = tempString.Split(' ');
+
+        int specialCount = inputString.Split('*').Length - 1;
 
         if (tempString.Length <= textcolumns)
         {
@@ -151,7 +183,7 @@ public class TextDisplayer : MonoBehaviour
                 else
                 {
                     compoundString = compoundString.Trim();
-                    compoundString = compoundString.PadRight(textcolumns, ' ');
+                    compoundString = compoundString.PadRight(textcolumns + specialCount, ' ');
 
                     outString += compoundString;
                     compoundString = str + " ";
@@ -159,7 +191,7 @@ public class TextDisplayer : MonoBehaviour
             }
 
             compoundString = compoundString.Trim();
-            compoundString = compoundString.PadRight(textcolumns, ' ');
+            compoundString = compoundString.PadRight(textcolumns + specialCount, ' ');
 
             outString += compoundString;
 
