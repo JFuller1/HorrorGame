@@ -599,6 +599,7 @@ MonoBehaviour:
   - event:/Dialogue/Cabby/e
   - event:/Dialogue/Cabby/o
   - event:/Dialogue/Cabby/u
+  busVolume: 0
 --- !u!4 &883317669
 Transform:
   m_ObjectHideFlags: 0
