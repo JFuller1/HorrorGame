@@ -17,9 +17,15 @@ public class TextDisplayer : MonoBehaviour
     int textcolumns;
 
     public string[] dialogSoundsVowels = { };
+    // get rid of this for json
+    [SerializeField][Range(-80f, 10f)]
+    private float busVolume;
+    private float volume;
+    FMOD.Studio.Bus dialogueBus;
 
     private void Awake()
     {
+        dialogueBus = FMODUnity.RuntimeManager.GetBus("bus:/Dialogue");
         for (int i = 0; i < charSet.Length; i++)
         {
             fontTranslator.Add(charSet[i], font.characters[i]);
@@ -112,6 +118,9 @@ public class TextDisplayer : MonoBehaviour
 
     public void TextSound()
     {
+        //replace bus volume with json
+        volume = Mathf.Pow(10.0f, busVolume / 20f);
+        dialogueBus.setVolume(volume);
         int soundNum = Random.Range(0, dialogSoundsVowels.Length);
         FMODUnity.RuntimeManager.PlayOneShot(dialogSoundsVowels[soundNum]);
     }
