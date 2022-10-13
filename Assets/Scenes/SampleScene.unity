@@ -594,11 +594,11 @@ MonoBehaviour:
   charSet: ABCDEFGHIJKLMNOPQRSTUVWXYZ.,!?
   sprites: []
   textRows: 3
-  dialogSounds:
-  - event:/Dialogue/e
-  - event:/Dialogue/a
-  - event:/Dialogue/o
-  - event:/Dialogue/u
+  dialogSoundsVowels:
+  - event:/Dialogue/Cabby/a
+  - event:/Dialogue/Cabby/e
+  - event:/Dialogue/Cabby/o
+  - event:/Dialogue/Cabby/u
 --- !u!4 &883317669
 Transform:
   m_ObjectHideFlags: 0
