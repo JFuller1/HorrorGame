@@ -66,6 +66,12 @@ public class TextDisplayer : MonoBehaviour
 
     public void UpdateText(string text)
     {
+
+        foreach (SpriteRenderer sp in sprites)
+        {
+            sp.sprite = null;
+        }
+
         // Play sound if its a letter
 
         if (System.Char.IsLetter(text[text.Length - 1]))

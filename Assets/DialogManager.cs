@@ -6,18 +6,19 @@ using FMODUnity;
 [System.Serializable]
 public class Dialog
 {    
-    public string[] text;
+    public string text;
+}
 
-    [Range(0.01f, 2)]
-    public float textSpeed, PunctuationSpeed;
-
-    public string[] dialogSounds = { };
-
+[System.Serializable]
+public class DialogStrings {
+    public Dialog[] dialog;
 }
 
 public class DialogManager : MonoBehaviour
 {
-    public string text = "test text? is being, typed";
+    public TextAsset jsonFile;
+
+    DialogStrings dialogStrings = new DialogStrings();
 
     public TextDisplayer textDisplayer;
 
@@ -25,10 +26,16 @@ public class DialogManager : MonoBehaviour
 
     private string punctuation = "!?.,;:";
 
+    int currentMessage = 0;
+
+    bool typing = false;
+
     private void Awake()
     {
+        dialogStrings = JsonUtility.FromJson<DialogStrings>(jsonFile.text);
+
         //second value used to be 0.2
-        coroutine = PrintDialog(text, 0.1f, 1f);
+        coroutine = PrintDialog(dialogStrings.dialog[currentMessage].text, 0.1f, 1f);
     }
 
     private void Start()
@@ -40,8 +47,19 @@ public class DialogManager : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            StopCoroutine(coroutine);
-            textDisplayer.UpdateText(text.ToUpper());
+            if(typing)
+            {
+                StopCoroutine(coroutine);
+                textDisplayer.UpdateText(dialogStrings.dialog[currentMessage].text.ToUpper());
+                typing = false;
+            } else
+            {
+                currentMessage++;
+                // loads the correct message as dialogStrings.dialog[currentMessage].text
+                // something like textDisplayer.ResetText(); here
+                // and then PrintDialog(dialogStrings.dialog[currentMessage].text, 0.1f, 1f);
+            }
+
         }
 
 
@@ -50,7 +68,7 @@ public class DialogManager : MonoBehaviour
 
     IEnumerator PrintDialog(string text, float delay, float punctuationDelay)
     {
-
+        typing = true;
         string printText = "";
 
         foreach (char character in text)
@@ -69,6 +87,7 @@ public class DialogManager : MonoBehaviour
             }
 
         }
+        typing = false;
 
     }
 
