@@ -589,6 +589,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d43460916b7940d4ab8a0c93161c85c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  textEffects:
+  - character: 42
+    effect: {fileID: 2100000, guid: da524150b78f6e14784174db9dd21de2, type: 2}
   defaultMat: {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
   ShakyMat: {fileID: 2100000, guid: da524150b78f6e14784174db9dd21de2, type: 2}
   font: {fileID: 11400000, guid: 31928461793cc95478a5039adec4ba28, type: 2}
