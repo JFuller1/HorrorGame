@@ -2,8 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+[System.Serializable]
+public struct TextEffect
+{
+    public char character;
+    public Material effect;
+}
+
 public class TextDisplayer : MonoBehaviour
 {
+
+    public TextEffect[] textEffects;
+
     public Material defaultMat, ShakyMat;
     public CustomFont font;
 
@@ -32,8 +43,6 @@ public class TextDisplayer : MonoBehaviour
         }
 
         textcolumns = Mathf.FloorToInt(Camera.main.orthographicSize * 2 * (16f / 9f));
-
-        //Debug.Log(Mathf.FloorToInt(transform.localScale.x));
 
         Setup();
     }
@@ -99,6 +108,8 @@ public class TextDisplayer : MonoBehaviour
 
         formatedText = TextEffects(formatedText);
 
+        Debug.Log(formatedText);
+
         for (int i = 0; i < formatedText.Length; i++)
         {
             Sprite temp;
@@ -129,30 +140,36 @@ public class TextDisplayer : MonoBehaviour
     {
 
         bool effect = false;
+        Material mat = defaultMat;
 
-        for (int i = 0; i < inputString.Length; i++)
+        for (int i = 0; i < textEffects.Length; i++)
         {
-            if (inputString[i] == '*')
+            for (int c = 0; c < inputString.Length; c++)
             {
-                effect = !effect;
-            }
 
+                if (inputString[c] == textEffects[i].character)
+                {
 
-            if (effect == true)
-            {
-                sprites[i].material = ShakyMat;
-            }
-            else
-            {
-                sprites[i].material = defaultMat;
-            }
+                    if (effect == false)
+                    {
+                        effect = !effect;
+                        mat = textEffects[i].effect;
+                    }
+                    else if (effect == true)
+                    {
+                        effect = !effect;
+                        mat = defaultMat;
+                    }
 
+                    inputString = inputString.Remove(c, 1);
+
+                }
+
+                sprites[c].material = mat;
+            }
         }
 
-        inputString = inputString.Replace("*", "");
-
         return inputString;
-
     }
 
     public string ProcessedString(string inputString)
@@ -165,7 +182,8 @@ public class TextDisplayer : MonoBehaviour
 
         tempArray = tempString.Split(' ');
 
-        int specialCount = inputString.Split('*').Length - 1;
+        int specialCount = Mathf.CeilToInt((inputString.Split('*').Length - 1f)/2f);
+        Debug.Log(specialCount);
 
         if (tempString.Length <= textcolumns)
         {
