@@ -15,7 +15,7 @@ public class TextDisplayer : MonoBehaviour
 
     public TextEffect[] textEffects;
 
-    public Material defaultMat, ShakyMat;
+    public Material defaultMat;
     public CustomFont font;
 
     public string charSet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ.,!?";
@@ -108,8 +108,6 @@ public class TextDisplayer : MonoBehaviour
 
         formatedText = TextEffects(formatedText);
 
-        Debug.Log(formatedText);
-
         for (int i = 0; i < formatedText.Length; i++)
         {
             Sprite temp;
@@ -142,18 +140,19 @@ public class TextDisplayer : MonoBehaviour
         bool effect = false;
         Material mat = defaultMat;
 
-        for (int i = 0; i < textEffects.Length; i++)
+        for (int character = 0; character < inputString.Length; character++)
         {
-            for (int c = 0; c < inputString.Length; c++)
+
+            for (int efct = 0; efct < textEffects.Length; efct++)
             {
 
-                if (inputString[c] == textEffects[i].character)
+                if (inputString[character] == textEffects[efct].character)
                 {
 
                     if (effect == false)
                     {
                         effect = !effect;
-                        mat = textEffects[i].effect;
+                        mat = textEffects[efct].effect;
                     }
                     else if (effect == true)
                     {
@@ -161,12 +160,18 @@ public class TextDisplayer : MonoBehaviour
                         mat = defaultMat;
                     }
 
-                    inputString = inputString.Remove(c, 1);
+                    inputString = inputString.Remove(character, 1);
+                    break;
 
-                }
-
-                sprites[c].material = mat;
+                }                
             }
+
+            if (character <= sprites.Count)
+            {
+                sprites[character].material = mat;
+            }
+
+
         }
 
         return inputString;
@@ -182,8 +187,12 @@ public class TextDisplayer : MonoBehaviour
 
         tempArray = tempString.Split(' ');
 
-        int specialCount = Mathf.CeilToInt((inputString.Split('*').Length - 1f)/2f);
-        Debug.Log(specialCount);
+        int specialCount = 0;
+
+        for (int i = 0; i < textEffects.Length; i++)
+        {
+            specialCount += Mathf.CeilToInt((inputString.Split(textEffects[i].character).Length - 1f) / 2f);
+        }
 
         if (tempString.Length <= textcolumns)
         {
