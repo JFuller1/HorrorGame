@@ -64,6 +64,7 @@ public class DialogManager : MonoBehaviour
             {
                 StopCoroutine(coroutine);
                 textDisplayer.UpdateText(dialogStrings.dialog[currentMessage].text.ToUpper());
+                textDisplayer.TextEffectsWhileSkipping(dialogStrings.dialog[currentMessage].text.ToUpper());
                 typing = false;
             } else
             {
@@ -91,7 +92,7 @@ public class DialogManager : MonoBehaviour
             printText += character;
 
             textDisplayer.UpdateText(printText.ToUpper());
-
+            textDisplayer.TextEffectsWhileTyping(printText.ToUpper());
             if (punctuation.Contains(character))
             {
                 yield return new WaitForSeconds(punctuationDelay);

@@ -27,6 +27,9 @@ public class TextDisplayer : MonoBehaviour
     public int textRows = 2;
     int textcolumns;
 
+    bool effect = false;
+    Material mat;
+
     public string[] dialogSoundsVowels = { };
     // get rid of this for json
     [SerializeField][Range(-80f, 10f)]
@@ -43,6 +46,8 @@ public class TextDisplayer : MonoBehaviour
         }
 
         textcolumns = Mathf.FloorToInt(Camera.main.orthographicSize * 2 * (16f / 9f));
+
+        mat = defaultMat;
 
         Setup();
     }
@@ -106,7 +111,7 @@ public class TextDisplayer : MonoBehaviour
 
         string formatedText = ProcessedString(text);
 
-        formatedText = TextEffects(formatedText);
+        //TextEffectsWhileTyping(text);
 
         for (int i = 0; i < formatedText.Length; i++)
         {
@@ -134,47 +139,58 @@ public class TextDisplayer : MonoBehaviour
         FMODUnity.RuntimeManager.PlayOneShot(dialogSoundsVowels[soundNum]);
     }
 
-    public string TextEffects(string inputString)
+
+    public void TextEffectsWhileTyping(string inputString)
     {
 
-        bool effect = false;
-        Material mat = defaultMat;
-
-        for (int character = 0; character < inputString.Length; character++)
+        foreach (TextEffect textEffect in textEffects)
         {
 
-            for (int efct = 0; efct < textEffects.Length; efct++)
+            if (textEffect.character == inputString[inputString.Length - 1])
             {
+                effect = !effect;
 
-                if (inputString[character] == textEffects[efct].character)
+                if (effect)
                 {
-
-                    if (effect == false)
-                    {
-                        effect = !effect;
-                        mat = textEffects[efct].effect;
-                    }
-                    else if (effect == true)
-                    {
-                        effect = !effect;
-                        mat = defaultMat;
-                    }
-
-                    inputString = inputString.Remove(character, 1);
-                    break;
-
-                }                
+                    mat = textEffect.effect;
+                }
+                else
+                {
+                    mat = defaultMat;
+                }
             }
-
-            if (character <= sprites.Count)
-            {
-                sprites[character].material = mat;
-            }
-
 
         }
 
-        return inputString;
+        sprites[inputString.Length - 1].material = mat;
+
+    }
+
+    public void TextEffectsWhileSkipping(string inputString)
+    {
+        for (int i = 0; i < inputString.Length; i++)
+        {
+            foreach (TextEffect textEffect in textEffects)
+            {
+
+                if (textEffect.character == inputString[i])
+                {
+                    effect = !effect;
+
+                    if (effect)
+                    {
+                        mat = textEffect.effect;
+                    }
+                    else
+                    {
+                        mat = defaultMat;
+                    }
+                }
+
+            }
+
+            sprites[i].material = mat;
+        }
     }
 
     public string ProcessedString(string inputString)
@@ -183,16 +199,14 @@ public class TextDisplayer : MonoBehaviour
         string compoundString = "";
         string tempString = inputString.Trim(); ;
 
+        foreach (TextEffect effect in textEffects)
+        {
+            tempString = tempString.Replace(effect.character.ToString(), "");
+        }
+
         string[] tempArray;
 
         tempArray = tempString.Split(' ');
-
-        int specialCount = 0;
-
-        for (int i = 0; i < textEffects.Length; i++)
-        {
-            specialCount += Mathf.CeilToInt((inputString.Split(textEffects[i].character).Length - 1f) / 2f);
-        }
 
         if (tempString.Length <= textcolumns)
         {
@@ -210,7 +224,7 @@ public class TextDisplayer : MonoBehaviour
                 else
                 {
                     compoundString = compoundString.Trim();
-                    compoundString = compoundString.PadRight(textcolumns + specialCount, ' ');
+                    compoundString = compoundString.PadRight(textcolumns, ' ');
 
                     outString += compoundString;
                     compoundString = str + " ";
@@ -218,7 +232,7 @@ public class TextDisplayer : MonoBehaviour
             }
 
             compoundString = compoundString.Trim();
-            compoundString = compoundString.PadRight(textcolumns + specialCount, ' ');
+            compoundString = compoundString.PadRight(textcolumns, ' ');
 
             outString += compoundString;
 
