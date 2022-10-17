@@ -66,9 +66,6 @@ public class TextDisplayer : MonoBehaviour
 
         for (int y = textRows; y > 0; y--)
         {
-
-            //for (int x = 0; x < Mathf.FloorToInt(transform.localScale.x); x++)
-            //{
                 for (int x = 0; x < textcolumns; x++)
                 {
                     GameObject newObject = new GameObject(i.ToString());
@@ -120,18 +117,20 @@ public class TextDisplayer : MonoBehaviour
 
         for (int i = 0; i < formatedText.Length; i++)
         {
-            Sprite temp;
 
-            if (charSet.Contains(formatedText[i]))
-            {
-                fontTranslator.TryGetValue(formatedText[i], out temp);
-                sprites[i].sprite = temp;
-            }
-            else
-            {
-                sprites[i].sprite = null;
-                continue;
-            }
+                Sprite temp;
+
+                if (charSet.Contains(formatedText[i]))
+                {
+                    fontTranslator.TryGetValue(formatedText[i], out temp);
+                    sprites[i].sprite = temp;
+                }
+                else
+                {
+                    sprites[i].sprite = null;
+                    continue;
+                }            
+
         }
     }
 
