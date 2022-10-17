@@ -30,7 +30,10 @@ public class TextDisplayer : MonoBehaviour
     bool effect = false;
     Material mat;
 
-    public string[] dialogSoundsVowels = { };
+    List<string> dialogSoundsVowels = new List<string>();
+    char[] sounds = { 'a', 'e', 'o', 'u' };
+
+
     // get rid of this for json
     [SerializeField][Range(-80f, 10f)]
     private float busVolume;
@@ -96,10 +99,7 @@ public class TextDisplayer : MonoBehaviour
 
         // Play sound if its a letter
 
-        if (System.Char.IsLetter(text[text.Length - 1]))
-        {
-            TextSound();
-        } 
+
 
         /*
               ______     ____  _             
@@ -132,15 +132,42 @@ public class TextDisplayer : MonoBehaviour
                 }            
 
         }
+
+        if (System.Char.IsLetter(text[text.Length - 1]))
+        {
+            TextSound();
+        }
+
+    }
+
+    public void InitializeVoice(string voice, float volume)
+    {
+
+        dialogSoundsVowels.Clear();
+
+        if (voice != "none")
+        {
+
+            for (int i = 0; i < sounds.Length; i++)
+            {
+                dialogSoundsVowels.Add($"event:/Dialogue/{voice}/{sounds[i]}");
+            }
+        }
     }
 
     public void TextSound()
     {
-        //replace bus volume with json
-        volume = Mathf.Pow(10.0f, busVolume / 20f);
-        dialogueBus.setVolume(volume);
-        int soundNum = Random.Range(0, dialogSoundsVowels.Length);
-        FMODUnity.RuntimeManager.PlayOneShot(dialogSoundsVowels[soundNum]);
+
+        if (dialogSoundsVowels.Count != 0)
+        {
+            //replace bus volume with json
+            volume = Mathf.Pow(10.0f, busVolume / 20f);
+            dialogueBus.setVolume(volume);
+            int soundNum = Random.Range(0, dialogSoundsVowels.Count);
+            FMODUnity.RuntimeManager.PlayOneShot(dialogSoundsVowels[soundNum]);
+        }
+
+
     }
 
 
