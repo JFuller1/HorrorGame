@@ -31,54 +31,84 @@ public class DialogManager : MonoBehaviour
 
     int currentMessage = 0;
 
-    bool typing = false;
+    bool typing = false, engaged = false;
 
     int num = 76;
 
     private void Awake()
     {
-        dialogStrings = JsonUtility.FromJson<DialogStrings>(jsonFile.text);
+        //dialogStrings = JsonUtility.FromJson<DialogStrings>(jsonFile.text);
 
-        foreach(Dialog dialog in dialogStrings.dialog)
-        {
-            Debug.Log($"text: {dialog.text}\n" +
-                $"voice: {dialog.voice}\n" +
-                $"delay: {dialog.delay}"
-                );
-        }
+        //foreach(Dialog dialog in dialogStrings.dialog)
+        //{
+        //    Debug.Log($"text: {dialog.text}\n" +
+        //        $"voice: {dialog.voice}\n" +
+        //        $"delay: {dialog.delay}"
+        //        );
+        //}
 
         //second value used to be 0.2
-        coroutine = PrintDialog(dialogStrings.dialog[currentMessage].text, dialogStrings.dialog[currentMessage].delay, 1f);
+        //coroutine = PrintDialog(dialogStrings.dialog[currentMessage].text, dialogStrings.dialog[currentMessage].delay, 1f);
     }
 
     private void Start()
     {
-        StartCoroutine(coroutine);
+        //StartCoroutine(coroutine);
+    }
+
+    public void TriggerDialogue()
+    {
+        if (!engaged)
+        {
+            engaged = true;
+
+            dialogStrings = JsonUtility.FromJson<DialogStrings>(jsonFile.text);
+
+            coroutine = PrintDialog(dialogStrings.dialog[currentMessage].text, dialogStrings.dialog[currentMessage].delay, 1f);
+
+            StartCoroutine(coroutine);
+
+        }
+
     }
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+
+        if (engaged)
         {
-            if(typing)
+            if (Input.GetMouseButtonDown(0))
             {
-                StopCoroutine(coroutine);
-                textDisplayer.UpdateText(dialogStrings.dialog[currentMessage].text.ToUpper());
-                textDisplayer.TextEffectsWhileSkipping(dialogStrings.dialog[currentMessage].text.ToUpper());
-                typing = false;
-            } else
-            {
-                currentMessage++;
-                // loads the correct message as dialogStrings.dialog[currentMessage].text
-                // something like textDisplayer.ResetText(); here
-                coroutine = PrintDialog(dialogStrings.dialog[currentMessage].text, dialogStrings.dialog[currentMessage].delay, 1f);
 
-                StartCoroutine(coroutine);
+                if (typing)
+                {
+                    StopCoroutine(coroutine);
+                    textDisplayer.UpdateText(dialogStrings.dialog[currentMessage].text.ToUpper());
+                    textDisplayer.TextEffectsWhileSkipping(dialogStrings.dialog[currentMessage].text.ToUpper());
+                    typing = false;
+                }
+                else
+                {
+                    currentMessage++;
+
+                    if (currentMessage < dialogStrings.dialog.Length)
+                    {
+                        coroutine = PrintDialog(dialogStrings.dialog[currentMessage].text, dialogStrings.dialog[currentMessage].delay, 1f);
+
+                        StartCoroutine(coroutine);
+                    }
+                    else
+                    {
+                        engaged = false;
+
+                        textDisplayer.Clear();
+
+                    }
+
+                }
+
             }
-
         }
-
-
 
     }
 

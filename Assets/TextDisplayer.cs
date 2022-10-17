@@ -84,13 +84,18 @@ public class TextDisplayer : MonoBehaviour
         }
     }
 
-    public void UpdateText(string text)
+    public void Clear()
     {
-
         foreach (SpriteRenderer sp in sprites)
         {
             sp.sprite = null;
         }
+    }
+
+    public void UpdateText(string text)
+    {
+
+        Clear();
 
         // Play sound if its a letter
 
@@ -168,6 +173,10 @@ public class TextDisplayer : MonoBehaviour
 
     public void TextEffectsWhileSkipping(string inputString)
     {
+
+        mat = defaultMat;
+        effect = false;
+
         for (int i = 0; i < inputString.Length; i++)
         {
             foreach (TextEffect textEffect in textEffects)
