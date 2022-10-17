@@ -24,7 +24,10 @@ public class InteractionManager : MonoBehaviour
 
     public StateIcon[] stateIcon;
 
+    public DialogManager dialogManager;
+
     public SpriteRenderer cursorGraphic;
+    private InteractionTypes currentType;
 
     Dictionary<InteractionTypes, Sprite> iconDictionary = new Dictionary<InteractionTypes, Sprite>();
 
@@ -52,7 +55,30 @@ public class InteractionManager : MonoBehaviour
         {
             if (hit.collider.gameObject.tag == "Interactable")
             {
-                cursorGraphic.sprite = iconDictionary[hit.collider.GetComponent<Interactable>().interactionType];
+                GameObject interactionObject = hit.collider.gameObject;
+
+                cursorGraphic.sprite = iconDictionary[interactionObject.GetComponent<Interactable>().interactionType];
+                currentType = interactionObject.GetComponent<Interactable>().interactionType;
+
+                if (Input.GetMouseButtonDown(0))
+                {
+                    switch (currentType)
+                    {
+                        case InteractionTypes.View:
+
+                            break;
+                        case InteractionTypes.Move:
+
+                            break;
+                        case InteractionTypes.Talk:
+                            dialogManager.jsonFile = interactionObject.GetComponent<DialogueContainer>().dialogue;
+                            dialogManager.TriggerDialogue();
+                            break;
+                        default:
+                            break;
+                    }
+                }
+
             }
 
         }
@@ -60,5 +86,6 @@ public class InteractionManager : MonoBehaviour
         {
             cursorGraphic.sprite = defaultCursor;
         }
+
     }
 }

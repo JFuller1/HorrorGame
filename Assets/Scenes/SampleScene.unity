@@ -450,6 +450,7 @@ GameObject:
   - component: {fileID: 843759649}
   - component: {fileID: 843759651}
   - component: {fileID: 843759650}
+  - component: {fileID: 843759652}
   m_Layer: 0
   m_Name: Talk
   m_TagString: Interactable
@@ -514,6 +515,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactionType: 2
+--- !u!114 &843759652
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 843759648}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14cc3b92938096d4bb9c8b71ca26f666, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue: {fileID: 4900000, guid: 0582e8303d5621448af234a8f6ce6e74, type: 3}
 --- !u!1 &878026929
 GameObject:
   m_ObjectHideFlags: 0
@@ -691,6 +705,7 @@ MonoBehaviour:
     icon: {fileID: 1033328482, guid: 082951f50d4b410408cb4691dde1dedc, type: 3}
   - state: 2
     icon: {fileID: -312579736, guid: 082951f50d4b410408cb4691dde1dedc, type: 3}
+  dialogManager: {fileID: 878026931}
   cursorGraphic: {fileID: 62100983}
 --- !u!4 &1179713187
 Transform:

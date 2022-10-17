@@ -25,7 +25,7 @@
          "volume":1
       },
       {
-         "text":"a really long string of dialog to see if we can handle that oh my goodness gracious it just keeps on going doesn't it.",
+         "text":"a really long string of dialog to see if",
 	      "voice":"driver",
 	      "delay":0.05,
          "volume":0.7
