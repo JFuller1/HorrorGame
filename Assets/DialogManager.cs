@@ -60,14 +60,20 @@ public class DialogManager : MonoBehaviour
     {
         if (!engaged)
         {
+
+            currentMessage = 0;
+
             engaged = true;
 
             dialogStrings = JsonUtility.FromJson<DialogStrings>(jsonFile.text);
+
+            textDisplayer.InitializeVoice(dialogStrings.dialog[currentMessage].voice, dialogStrings.dialog[currentMessage].volume);
 
             coroutine = PrintDialog(dialogStrings.dialog[currentMessage].text, dialogStrings.dialog[currentMessage].delay, 1f);
 
             StartCoroutine(coroutine);
 
+            
         }
 
     }
@@ -79,20 +85,25 @@ public class DialogManager : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(0))
             {
-
+                
                 if (typing)
                 {
                     StopCoroutine(coroutine);
                     textDisplayer.UpdateText(dialogStrings.dialog[currentMessage].text.ToUpper());
                     textDisplayer.TextEffectsWhileSkipping(dialogStrings.dialog[currentMessage].text.ToUpper());
                     typing = false;
+
+                    //textDisplayer.InitializeVoice(dialogStrings.dialog[currentMessage].voice, dialogStrings.dialog[currentMessage].volume);
                 }
                 else
                 {
                     currentMessage++;
+                    
 
                     if (currentMessage < dialogStrings.dialog.Length)
                     {
+                        textDisplayer.InitializeVoice(dialogStrings.dialog[currentMessage].voice, dialogStrings.dialog[currentMessage].volume);
+
                         coroutine = PrintDialog(dialogStrings.dialog[currentMessage].text, dialogStrings.dialog[currentMessage].delay, 1f);
 
                         StartCoroutine(coroutine);

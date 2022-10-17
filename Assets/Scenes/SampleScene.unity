@@ -613,11 +613,6 @@ MonoBehaviour:
   charSet: ABCDEFGHIJKLMNOPQRSTUVWXYZ.,!?
   sprites: []
   textRows: 2
-  dialogSoundsVowels:
-  - event:/Dialogue/Cabby/a
-  - event:/Dialogue/Cabby/e
-  - event:/Dialogue/Cabby/o
-  - event:/Dialogue/Cabby/u
   busVolume: 0
 --- !u!4 &883317669
 Transform:

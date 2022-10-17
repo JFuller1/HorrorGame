@@ -27,6 +27,87 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 208013
+--- !u!114 &-7611676069212118244
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Dialogue/player/e
+  m_EditorClassIdentifier: 
+  Path: event:/Dialogue/player/e
+  Guid:
+    Data1: -2096722533
+    Data2: 1114798558
+    Data3: 1982694300
+    Data4: -1851528589
+  Banks:
+  - {fileID: -1028462705103188731}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 100
+--- !u!114 &-7546730172740936492
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Dialogue/player/o
+  m_EditorClassIdentifier: 
+  Path: event:/Dialogue/player/o
+  Guid:
+    Data1: -1849320704
+    Data2: 1254185387
+    Data3: 991151746
+    Data4: 1117162453
+  Banks:
+  - {fileID: -1028462705103188731}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 100
+--- !u!114 &-6273096047333314501
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Dialogue/player/a
+  m_EditorClassIdentifier: 
+  Path: event:/Dialogue/player/a
+  Guid:
+    Data1: -491144684
+    Data2: 1114274791
+    Data3: 732015278
+    Data4: -924692909
+  Banks:
+  - {fileID: -1028462705103188731}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 100
 --- !u!114 &-5985349998691941013
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -54,6 +135,33 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 0
+--- !u!114 &-3376063092957118851
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Dialogue/driver/e
+  m_EditorClassIdentifier: 
+  Path: event:/Dialogue/driver/e
+  Guid:
+    Data1: -411517765
+    Data2: 1154208604
+    Data3: 903400613
+    Data4: 2026142206
+  Banks:
+  - {fileID: -1028462705103188731}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 100
 --- !u!114 &-1028462705103188731
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -69,7 +177,7 @@ MonoBehaviour:
   Path: FMOD/HorrorHouseMusic/Build/Desktop/Dialogue.bank
   Name: Dialogue
   StudioPath: bank:/Dialogue
-  lastModified: 638012726117128252
+  lastModified: 638016076008528182
   FileSizes:
   - Name: Desktop
     Value: 62400
@@ -89,38 +197,11 @@ MonoBehaviour:
   Path: FMOD/HorrorHouseMusic/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638012726117417474
+  lastModified: 638016076009627133
   FileSizes:
   - Name: Desktop
     Value: 2607808
   Exists: 1
---- !u!114 &-150852955605859459
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Dialogue/Cabby/a
-  m_EditorClassIdentifier: 
-  Path: event:/Dialogue/Cabby/a
-  Guid:
-    Data1: 1560025565
-    Data2: 1250600909
-    Data3: 1119381178
-    Data4: 908383953
-  Banks:
-  - {fileID: -1028462705103188731}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 100
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -138,24 +219,24 @@ MonoBehaviour:
   - {fileID: -451327191515584886}
   - {fileID: -1028462705103188731}
   EditorEvents:
-  - {fileID: 6590242485143000916}
-  - {fileID: 1773137714200446430}
-  - {fileID: 5262071537979871543}
-  - {fileID: 8658114654060720162}
-  - {fileID: 5511828506938673511}
   - {fileID: -9140249874111262433}
-  - {fileID: 6768888442508368123}
-  - {fileID: 480540204422055375}
-  - {fileID: -150852955605859459}
   - {fileID: -5985349998691941013}
+  - {fileID: -7546730172740936492}
+  - {fileID: -6273096047333314501}
+  - {fileID: 6843749512199582663}
+  - {fileID: 1095516313120040851}
+  - {fileID: -7611676069212118244}
+  - {fileID: -3376063092957118851}
+  - {fileID: 7831244551397282418}
+  - {fileID: 1441471316234527861}
   EditorParameters: []
   MasterBanks:
   - {fileID: -451327191515584886}
   StringsBanks:
   - {fileID: 9156371007720583041}
-  cacheTime: 638012726117476899
+  cacheTime: 638016076009666835
   cacheVersion: 131593
---- !u!114 &480540204422055375
+--- !u!114 &1095516313120040851
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -165,14 +246,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Dialogue/Narrator/u
+  m_Name: event:/Dialogue/driver/u
   m_EditorClassIdentifier: 
-  Path: event:/Dialogue/Narrator/u
+  Path: event:/Dialogue/driver/u
   Guid:
-    Data1: -889189942
-    Data2: 1327152140
-    Data3: 1173089412
-    Data4: 543448504
+    Data1: -1856568700
+    Data2: 1111134168
+    Data3: 2052584592
+    Data4: 454159722
   Banks:
   - {fileID: -1028462705103188731}
   IsStream: 0
@@ -182,7 +263,7 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 100
---- !u!114 &1773137714200446430
+--- !u!114 &1441471316234527861
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -192,14 +273,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Dialogue/Narrator/a
+  m_Name: event:/Dialogue/driver/a
   m_EditorClassIdentifier: 
-  Path: event:/Dialogue/Narrator/a
+  Path: event:/Dialogue/driver/a
   Guid:
-    Data1: -491144684
-    Data2: 1114274791
-    Data3: 732015278
-    Data4: -924692909
+    Data1: 1560025565
+    Data2: 1250600909
+    Data3: 1119381178
+    Data4: 908383953
   Banks:
   - {fileID: -1028462705103188731}
   IsStream: 0
@@ -209,7 +290,7 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 100
---- !u!114 &5262071537979871543
+--- !u!114 &6843749512199582663
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -219,9 +300,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Dialogue/Cabby/o
+  m_Name: event:/Dialogue/driver/o
   m_EditorClassIdentifier: 
-  Path: event:/Dialogue/Cabby/o
+  Path: event:/Dialogue/driver/o
   Guid:
     Data1: -489200335
     Data2: 1175831234
@@ -236,7 +317,7 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 100
---- !u!114 &5511828506938673511
+--- !u!114 &7831244551397282418
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -246,95 +327,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Dialogue/Narrator/e
+  m_Name: event:/Dialogue/player/u
   m_EditorClassIdentifier: 
-  Path: event:/Dialogue/Narrator/e
+  Path: event:/Dialogue/player/u
   Guid:
-    Data1: -2096722533
-    Data2: 1114798558
-    Data3: 1982694300
-    Data4: -1851528589
-  Banks:
-  - {fileID: -1028462705103188731}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 100
---- !u!114 &6590242485143000916
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Dialogue/Narrator/o
-  m_EditorClassIdentifier: 
-  Path: event:/Dialogue/Narrator/o
-  Guid:
-    Data1: -1849320704
-    Data2: 1254185387
-    Data3: 991151746
-    Data4: 1117162453
-  Banks:
-  - {fileID: -1028462705103188731}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 100
---- !u!114 &6768888442508368123
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Dialogue/Cabby/e
-  m_EditorClassIdentifier: 
-  Path: event:/Dialogue/Cabby/e
-  Guid:
-    Data1: -411517765
-    Data2: 1154208604
-    Data3: 903400613
-    Data4: 2026142206
-  Banks:
-  - {fileID: -1028462705103188731}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 100
---- !u!114 &8658114654060720162
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Dialogue/Cabby/u
-  m_EditorClassIdentifier: 
-  Path: event:/Dialogue/Cabby/u
-  Guid:
-    Data1: -1856568700
-    Data2: 1111134168
-    Data3: 2052584592
-    Data4: 454159722
+    Data1: -889189942
+    Data2: 1327152140
+    Data3: 1173089412
+    Data4: 543448504
   Banks:
   - {fileID: -1028462705103188731}
   IsStream: 0
@@ -359,7 +359,7 @@ MonoBehaviour:
   Path: FMOD/HorrorHouseMusic/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638012726117476899
+  lastModified: 638016076009666835
   FileSizes:
   - Name: Desktop
     Value: 1270
