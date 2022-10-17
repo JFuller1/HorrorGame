@@ -9,7 +9,9 @@ public class InteractionZoneCreator : EditorWindow
 
     string obj_name;
 
-    Vector2 obj_location;
+   // Vector2 obj_location;
+
+    TextAsset text;
 
     [MenuItem("Window/InteractionZoneCreator")]
     public static void ShowWindow()
@@ -25,18 +27,20 @@ public class InteractionZoneCreator : EditorWindow
 
         obj_type = (InteractionTypes)EditorGUILayout.EnumPopup("Type", obj_type);
 
-        obj_location = EditorGUILayout.Vector2Field("Location", obj_location);        
+        //obj_location = EditorGUILayout.Vector2Field("Location", obj_location);        
 
         switch (obj_type)
         {
             case InteractionTypes.View:
                 GUILayout.Label("object to view");
+                text = null;
                 break;
             case InteractionTypes.Move:
                 GUILayout.Label("scene to move");
+                text = null;
                 break;
             case InteractionTypes.Talk:
-                GUILayout.Label("insert dialog here");
+                text = (TextAsset)EditorGUILayout.ObjectField("Dialogue JSON File",text, typeof(TextAsset), true);
                 break;
             default:
                 break;
@@ -59,6 +63,24 @@ public class InteractionZoneCreator : EditorWindow
             
             PolygonCollider2D obj_shape = obj_new.AddComponent<PolygonCollider2D>();
             obj_shape.CreatePrimitive(4, Vector2.one);
+
+
+            switch (obj_type)
+            {
+                case InteractionTypes.View:
+                    GUILayout.Label("object to view");
+                    text = null;
+                    break;
+                case InteractionTypes.Move:
+                    GUILayout.Label("scene to move");
+                    text = null;
+                    break;
+                case InteractionTypes.Talk:
+                    obj_new.AddComponent<DialogueContainer>().dialogue = text;
+                    break;
+                default:
+                    break;
+            }
 
         }
 

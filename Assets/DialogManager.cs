@@ -31,8 +31,8 @@ public class DialogManager : MonoBehaviour
 
     int currentMessage = 0;
 
-    bool typing = false, engaged = false;
-
+    bool typing = false;
+    static bool engaged = false;
     int num = 76;
 
     private void Awake()
