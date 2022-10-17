@@ -7,7 +7,7 @@
          "volume":0.7
       },
       {
-         "text":"response from player",
+         "text":"response /from/ player",
 	      "voice":"player",
 	      "delay":0.2,
          "volume":0.5

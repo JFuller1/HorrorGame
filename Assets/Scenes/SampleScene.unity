@@ -608,8 +608,10 @@ MonoBehaviour:
     effect: {fileID: 2100000, guid: da524150b78f6e14784174db9dd21de2, type: 2}
   - character: 42
     effect: {fileID: 2100000, guid: 7a7043c6fced5ea4a88dc3c78eb7e784, type: 2}
+  - character: 47
+    effect: {fileID: 2100000, guid: c16bd82fa56ce4147a7c10f9b7e12739, type: 2}
   defaultMat: {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
-  font: {fileID: 11400000, guid: 31928461793cc95478a5039adec4ba28, type: 2}
+  font: {fileID: 11400000, guid: ae0e92f873fe83445a3b6791e845787d, type: 2}
   charSet: ABCDEFGHIJKLMNOPQRSTUVWXYZ.,!?
   sprites: []
   textRows: 2
