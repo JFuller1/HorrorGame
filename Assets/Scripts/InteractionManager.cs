@@ -26,6 +26,8 @@ public class InteractionManager : MonoBehaviour
 
     public DialogManager dialogManager;
 
+    public ViewManager viewManager;
+
     public SpriteRenderer cursorGraphic;
     private InteractionTypes currentType;
 
@@ -65,7 +67,7 @@ public class InteractionManager : MonoBehaviour
                     switch (currentType)
                     {
                         case InteractionTypes.View:
-
+                            viewManager.TriggerView(interactionObject.GetComponent<ViewContainer>().coords);
                             break;
                         case InteractionTypes.Move:
 

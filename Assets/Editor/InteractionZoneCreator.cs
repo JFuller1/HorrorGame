@@ -13,6 +13,8 @@ public class InteractionZoneCreator : EditorWindow
 
     TextAsset text;
 
+    Vector2 coords;
+
     [MenuItem("Window/InteractionZoneCreator")]
     public static void ShowWindow()
     {
@@ -32,8 +34,7 @@ public class InteractionZoneCreator : EditorWindow
         switch (obj_type)
         {
             case InteractionTypes.View:
-                GUILayout.Label("object to view");
-                text = null;
+                coords = (Vector2)EditorGUILayout.Vector2Field("Camera view coordinates", coords);
                 break;
             case InteractionTypes.Move:
                 GUILayout.Label("scene to move");
@@ -68,8 +69,7 @@ public class InteractionZoneCreator : EditorWindow
             switch (obj_type)
             {
                 case InteractionTypes.View:
-                    GUILayout.Label("object to view");
-                    text = null;
+                    obj_new.AddComponent<ViewContainer>().coords = coords;
                     break;
                 case InteractionTypes.Move:
                     GUILayout.Label("scene to move");
