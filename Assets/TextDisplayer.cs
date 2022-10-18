@@ -33,9 +33,6 @@ public class TextDisplayer : MonoBehaviour
     List<string> dialogSoundsVowels = new List<string>();
     char[] sounds = { 'a', 'e', 'o', 'u' };
 
-
-    // get rid of this for json
-    [SerializeField][Range(-80f, 10f)]
     private float busVolume;
     private float volume;
     FMOD.Studio.Bus dialogueBus;
@@ -148,7 +145,7 @@ public class TextDisplayer : MonoBehaviour
 
         if (voice != "none")
         {
-
+            busVolume = volume;
             for (int i = 0; i < sounds.Length; i++)
             {
                 dialogSoundsVowels.Add($"event:/Dialogue/{voice}/{sounds[i]}");
@@ -161,7 +158,7 @@ public class TextDisplayer : MonoBehaviour
 
         if (dialogSoundsVowels.Count != 0)
         {
-            //replace bus volume with json
+            Debug.Log(volume);
             volume = Mathf.Pow(10.0f, busVolume / 20f);
             dialogueBus.setVolume(volume);
             int soundNum = Random.Range(0, dialogSoundsVowels.Count);

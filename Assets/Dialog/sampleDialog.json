@@ -4,13 +4,13 @@
          "text":"cab ~driver~ dialog over *here*",
 	      "voice":"driver",
 	      "delay":0.1,
-         "volume":0.7
+         "volume":0
       },
       {
          "text":"response /from/ player",
 	      "voice":"player",
 	      "delay":0.2,
-         "volume":0.5
+         "volume":5
       },
       {
          "text":"break",
@@ -22,13 +22,13 @@
          "text":"more dialog but only after you click",
 	      "voice":"driver",
 	      "delay":0.1,
-         "volume":1
+         "volume":-5
       },
       {
          "text":"a really long string of dialog to see if",
 	      "voice":"driver",
 	      "delay":0.05,
-         "volume":0.7
+         "volume":10
       }
    ]
 }
