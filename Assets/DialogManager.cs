@@ -130,6 +130,7 @@ public class DialogManager : MonoBehaviour
 
         foreach (char character in text)
         {
+            // hi, sincerely Jaeden Fuller
             printText += character;
 
             textDisplayer.UpdateText(printText.ToUpper());
