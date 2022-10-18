@@ -79,6 +79,7 @@ public class TextDisplayer : MonoBehaviour
 
                     float xPos = x - (textcolumns / 2f) + 0.5f;
                     newObject.transform.position = new Vector2(xPos, y - (Camera.main.orthographicSize + 0.5f));
+                    newObject.transform.parent = Camera.main.transform;
                     sprites.Add(renderer);
                 }
         }
