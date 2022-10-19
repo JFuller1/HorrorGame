@@ -10,6 +10,7 @@ public class Dialog
     public string voice;
     public float delay;
     public float volume;
+    public string color;
 }
 
 [System.Serializable]
@@ -37,6 +38,9 @@ public class DialogManager : MonoBehaviour
 
     private void Awake()
     {
+        //dialogStrings = JsonUtility.FromJson<DialogStrings>(jsonFile.text);
+        //Debug.Log(dialogStrings.dialog[0].color);
+
         //dialogStrings = JsonUtility.FromJson<DialogStrings>(jsonFile.text);
 
         //foreach(Dialog dialog in dialogStrings.dialog)
@@ -69,10 +73,13 @@ public class DialogManager : MonoBehaviour
 
             textDisplayer.InitializeVoice(dialogStrings.dialog[currentMessage].voice, dialogStrings.dialog[currentMessage].volume);
 
+            Color textColor;
+            ColorUtility.TryParseHtmlString(dialogStrings.dialog[currentMessage].color, out textColor);
+            textDisplayer.matColor = textColor;
+
             coroutine = PrintDialog(dialogStrings.dialog[currentMessage].text, dialogStrings.dialog[currentMessage].delay, 1f);
 
             StartCoroutine(coroutine);
-
             
         }
 
@@ -86,6 +93,7 @@ public class DialogManager : MonoBehaviour
             if (Input.GetMouseButtonDown(0))
             {
                 
+
                 if (typing)
                 {
                     StopCoroutine(coroutine);
@@ -103,6 +111,10 @@ public class DialogManager : MonoBehaviour
                     if (currentMessage < dialogStrings.dialog.Length)
                     {
                         textDisplayer.InitializeVoice(dialogStrings.dialog[currentMessage].voice, dialogStrings.dialog[currentMessage].volume);
+
+                        Color textColor;
+                        ColorUtility.TryParseHtmlString(dialogStrings.dialog[currentMessage].color, out textColor);
+                        textDisplayer.matColor = textColor;
 
                         coroutine = PrintDialog(dialogStrings.dialog[currentMessage].text, dialogStrings.dialog[currentMessage].delay, 1f);
 
