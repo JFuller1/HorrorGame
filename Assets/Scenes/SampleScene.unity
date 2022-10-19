@@ -877,12 +877,12 @@ MonoBehaviour:
     effect: {fileID: 2100000, guid: 7a7043c6fced5ea4a88dc3c78eb7e784, type: 2}
   - character: 47
     effect: {fileID: 2100000, guid: c16bd82fa56ce4147a7c10f9b7e12739, type: 2}
-  defaultMat: {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
+  defaultMat: {fileID: 2100000, guid: 8a009050ce38e8d4fa259068cc8323d5, type: 2}
   font: {fileID: 11400000, guid: ae0e92f873fe83445a3b6791e845787d, type: 2}
   charSet: ABCDEFGHIJKLMNOPQRSTUVWXYZ.,!?
   sprites: []
   textRows: 2
-  busVolume: 0
+  matColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!4 &883317669
 Transform:
   m_ObjectHideFlags: 0

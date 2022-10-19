@@ -29,6 +29,7 @@ public class TextDisplayer : MonoBehaviour
 
     bool effect = false;
     Material mat;
+    public Color matColor;
 
     List<string> dialogSoundsVowels = new List<string>();
     char[] sounds = { 'a', 'e', 'o', 'u' };
@@ -77,6 +78,9 @@ public class TextDisplayer : MonoBehaviour
                     float xPos = x - (textcolumns / 2f) + 0.5f;
                     newObject.transform.position = new Vector2(xPos, y - (Camera.main.orthographicSize + 0.5f));
                     newObject.transform.parent = Camera.main.transform;
+
+                renderer.sortingLayerName = "Text";
+
                     sprites.Add(renderer);
                 }
         }
@@ -192,6 +196,7 @@ public class TextDisplayer : MonoBehaviour
         }
 
         sprites[inputString.Length - 1].material = mat;
+        mat.SetColor("_Color", matColor);
 
     }
 
@@ -223,6 +228,7 @@ public class TextDisplayer : MonoBehaviour
             }
 
             sprites[i].material = mat;
+            mat.SetColor("_Color", matColor);
         }
     }
 
