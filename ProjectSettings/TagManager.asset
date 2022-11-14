@@ -9,13 +9,13 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - MaskLayer
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
+  - BaseLayer
+  - Red
+  - Blue
+  - Green
   - 
   - 
   - 
@@ -41,4 +41,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Text
+    uniqueID: 1539054789
     locked: 0
