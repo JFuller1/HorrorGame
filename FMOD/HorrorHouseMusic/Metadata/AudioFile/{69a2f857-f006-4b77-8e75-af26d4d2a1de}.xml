@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{69a2f857-f006-4b77-8e75-af26d4d2a1de}">
+		<property name="assetPath">
+			<value>LeakyFaucet-1CloseDistance-www.FesliyanStudios.com.mp3</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>13.944000000000001</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{8046fc6b-0229-4be9-bcd8-f8579814a267}</destination>
+		</relationship>
+	</object>
+</objects>
