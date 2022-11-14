@@ -9,13 +9,13 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - MaskLayer
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
+  - BaseLayer
+  - Red
+  - Blue
+  - Green
   - 
   - 
   - 

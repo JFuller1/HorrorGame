@@ -42,6 +42,7 @@ Material:
     - _QueueOffset: 0
     - _rotation: -8.82
     m_Colors:
+    - _Color: {r: 0, g: 0, b: 0, a: 1}
     - _Offset: {r: 0.025, g: 0.02, b: 0, a: 0}
     - _offset: {r: 0.01, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
