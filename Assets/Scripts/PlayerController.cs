@@ -25,11 +25,11 @@ public class PlayerController : MonoBehaviour
     {
         if(Input.GetKeyDown("a"))
         {
-            Quaternion target = Quaternion.Euler(0, tr.eulerAngles.y - 90f, 0);
+            Quaternion target = Quaternion.Euler(tr.eulerAngles.x, tr.eulerAngles.y - 90f, 0);
             StartCoroutine(PerformRotation(target));
         } else if (Input.GetKeyDown("d"))
         {
-            Quaternion target = Quaternion.Euler(0, tr.eulerAngles.y + 90f, 0);
+            Quaternion target = Quaternion.Euler(tr.eulerAngles.x, tr.eulerAngles.y + 90f, 0);
             StartCoroutine(PerformRotation(target));
         }
     }
