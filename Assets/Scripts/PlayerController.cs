@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
-
+        
     }
 
     void Update()
@@ -34,28 +34,12 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void HandleMovement()
-    {
-        if(Input.GetKeyDown("w"))
-        {
-            RaycastHit hit;
-
-            if(Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, 1f))
-            {
-                if(hit.transform.CompareTag("Node"))
-                {
-                    StartCoroutine(PerformMovement());
-                }
-            }
-        }
-    }
-
     IEnumerator PerformRotation(Quaternion targetRotation)
     {
         movement = true;
         float progress = 0f;
         float speed = 0.5f;
-        float snap = 0.2f;
+        float snap = 0.3f;
 
         while (progress < 1f)
         {
@@ -71,18 +55,8 @@ public class PlayerController : MonoBehaviour
         yield return null;
     }
 
-    IEnumerator PerformMovement()
+    void HandleMovement()
     {
-        movement = true;
-        float time = 0f;
-        float speed = 5f;
-        while(time < 1)
-        {
-            transform.Translate(Vector3.forward * Time.deltaTime * speed);
-            time += Time.deltaTime * speed;
-            yield return null;
-        }
-        yield return new WaitForSeconds(0.05f);
-        movement = false;
+
     }
 }
