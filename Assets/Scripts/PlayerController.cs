@@ -68,18 +68,19 @@ public class PlayerController : MonoBehaviour
     {
         movement = true;
         float progress = 0f;
-        float speed = 0.5f;
-        float snap = 0.2f;
+        float speed = 5f;
+
+        Quaternion start = tr.rotation;
 
         while (progress < 1f)
         {
-            tr.rotation = Quaternion.Slerp(tr.rotation, targetRotation, progress);
             progress += Time.deltaTime * speed;
+            //progress =  Mathf.Clamp(progress, 0f, 1f);
 
-            if (progress <= snap)
-            {
-                yield return null;
-            }
+            tr.rotation = Quaternion.Lerp(start, targetRotation, Mathf.SmoothStep(0,1, progress));
+            
+            yield return null;
+            Debug.Log(progress);
         }
         movement = false;
         yield return null;
@@ -95,11 +96,13 @@ public class PlayerController : MonoBehaviour
 
         while (time < 1)
         {
-            transform.position = Vector3.Lerp(start, end, Mathf.SmoothStep(0,1, time));
             time += Time.deltaTime * speed;
+            transform.position = Vector3.Lerp(start, end, Mathf.SmoothStep(0,1, time));
+            
             yield return null;
         }
-        yield return new WaitForSeconds(0.05f);
+        //yield return new WaitForSeconds(0.05f);
         movement = false;
+        yield return null;
     }
 }

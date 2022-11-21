@@ -21,7 +21,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _ColorPallet:
-        m_Texture: {fileID: 2800000, guid: 00ef47812dbfc154399092a5adc84353, type: 3}
+        m_Texture: {fileID: 2800000, guid: 563d2f5815e6bb847bf4e469044af963, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
@@ -44,6 +44,6 @@ Material:
     m_Floats:
     - _BandRange: 1.68
     - _DitherSize: 7
-    - _Invert: 1
+    - _Invert: 0
     m_Colors: []
   m_BuildTextureStacks: []
