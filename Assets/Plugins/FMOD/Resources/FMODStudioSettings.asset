@@ -386,6 +386,7 @@ MonoBehaviour:
   Banks:
   - Dialogue
   - House
+  - Person
   BanksToLoad: []
   LiveUpdatePort: 9264
   EnableMemoryTracking: 0
