@@ -1,17 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects serializationModel="Studio.02.02.00">
-	<object class="AudioFile" id="{b7e1a359-a2da-45a6-85ed-07b0ae9a6218}">
+	<object class="AudioFile" id="{69a2f857-f006-4b77-8e75-af26d4d2a1de}">
 		<property name="assetPath">
-			<value>p.mp3</value>
+			<value>LeakyFaucet-1CloseDistance-www.FesliyanStudios.com.mp3</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
 		</property>
 		<property name="frequencyInKHz">
-			<value>24</value>
+			<value>48</value>
 		</property>
 		<property name="channelCount">
-			<value>1</value>
+			<value>2</value>
 		</property>
 		<property name="length">
-			<value>1.5840000000000001</value>
+			<value>13.944000000000001</value>
 		</property>
 		<relationship name="masterAssetFolder">
 			<destination>{8046fc6b-0229-4be9-bcd8-f8579814a267}</destination>

@@ -55,10 +55,7 @@ public class TextDisplayer : MonoBehaviour
 
     public void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            FMODUnity.RuntimeManager.PlayOneShot(dialogSoundsVowels[0]);
-        }
+
     }
 
     public void Setup()
@@ -162,14 +159,11 @@ public class TextDisplayer : MonoBehaviour
 
         if (dialogSoundsVowels.Count != 0)
         {
-            Debug.Log(volume);
             volume = Mathf.Pow(10.0f, busVolume / 20f);
             dialogueBus.setVolume(volume);
             int soundNum = Random.Range(0, dialogSoundsVowels.Count);
             FMODUnity.RuntimeManager.PlayOneShot(dialogSoundsVowels[soundNum]);
         }
-
-
     }
 
 

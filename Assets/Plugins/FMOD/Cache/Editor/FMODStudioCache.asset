@@ -27,6 +27,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 208013
+--- !u!114 &-8503710931926647787
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Person Ambience/Footsteps/step3
+  m_EditorClassIdentifier: 
+  Path: event:/Person Ambience/Footsteps/step3
+  Guid:
+    Data1: 1208578084
+    Data2: 1315502059
+    Data3: 153256639
+    Data4: 1059934160
+  Banks:
+  - {fileID: 1391635797460913688}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 330
 --- !u!114 &-7611676069212118244
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -81,6 +108,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 100
+--- !u!114 &-7457913537209669232
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Person Ambience/Footsteps/step5 2
+  m_EditorClassIdentifier: 
+  Path: event:/Person Ambience/Footsteps/step5 2
+  Guid:
+    Data1: -387579036
+    Data2: 1144617977
+    Data3: -2013055055
+    Data4: -1411847957
+  Banks:
+  - {fileID: 1391635797460913688}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 21285
 --- !u!114 &-6273096047333314501
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -135,6 +189,33 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 0
+--- !u!114 &-4468678051540672725
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Person Ambience/Footsteps/step4
+  m_EditorClassIdentifier: 
+  Path: event:/Person Ambience/Footsteps/step4
+  Guid:
+    Data1: -723555031
+    Data2: 1088855416
+    Data3: -2134514528
+    Data4: 1807270818
+  Banks:
+  - {fileID: 1391635797460913688}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 220
 --- !u!114 &-3376063092957118851
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -162,6 +243,107 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 100
+--- !u!114 &-2909219648046273570
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/House.bank
+  m_EditorClassIdentifier: 
+  Path: FMOD/HorrorHouseMusic/Build/Desktop/House.bank
+  Name: House
+  StudioPath: bank:/House
+  lastModified: 638047894007357083
+  FileSizes:
+  - Name: Desktop
+    Value: 105600
+  Exists: 1
+--- !u!114 &-2125061196552609247
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Person Ambience/Footsteps/step1
+  m_EditorClassIdentifier: 
+  Path: event:/Person Ambience/Footsteps/step1
+  Guid:
+    Data1: 1435498515
+    Data2: 1239436007
+    Data3: 1478050456
+    Data4: -188144339
+  Banks:
+  - {fileID: 1391635797460913688}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 295
+--- !u!114 &-1529867311472465701
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Person Ambience/Footsteps/step5
+  m_EditorClassIdentifier: 
+  Path: event:/Person Ambience/Footsteps/step5
+  Guid:
+    Data1: -778218426
+    Data2: 1117601567
+    Data3: 1864966038
+    Data4: -1244259698
+  Banks:
+  - {fileID: 1391635797460913688}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 235
+--- !u!114 &-1332014811268205157
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/House Ambience/LeakyFaucet-1CloseDistance-www.FesliyanStudios.com
+  m_EditorClassIdentifier: 
+  Path: event:/House Ambience/LeakyFaucet-1CloseDistance-www.FesliyanStudios.com
+  Guid:
+    Data1: -736308386
+    Data2: 1140159788
+    Data3: 642377624
+    Data4: 1884197218
+  Banks:
+  - {fileID: -2909219648046273570}
+  IsStream: 1
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 27888
 --- !u!114 &-1028462705103188731
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -177,7 +359,7 @@ MonoBehaviour:
   Path: FMOD/HorrorHouseMusic/Build/Desktop/Dialogue.bank
   Name: Dialogue
   StudioPath: bank:/Dialogue
-  lastModified: 638016266223845722
+  lastModified: 638047894007146336
   FileSizes:
   - Name: Desktop
     Value: 62400
@@ -197,7 +379,7 @@ MonoBehaviour:
   Path: FMOD/HorrorHouseMusic/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638012726117417474
+  lastModified: 638047894007609650
   FileSizes:
   - Name: Desktop
     Value: 2607808
@@ -218,6 +400,8 @@ MonoBehaviour:
   - {fileID: 9156371007720583041}
   - {fileID: -451327191515584886}
   - {fileID: -1028462705103188731}
+  - {fileID: -2909219648046273570}
+  - {fileID: 1391635797460913688}
   EditorEvents:
   - {fileID: -9140249874111262433}
   - {fileID: -5985349998691941013}
@@ -229,12 +413,19 @@ MonoBehaviour:
   - {fileID: -3376063092957118851}
   - {fileID: 7831244551397282418}
   - {fileID: 1441471316234527861}
+  - {fileID: -1332014811268205157}
+  - {fileID: -2125061196552609247}
+  - {fileID: -8503710931926647787}
+  - {fileID: -4468678051540672725}
+  - {fileID: -1529867311472465701}
+  - {fileID: 6042102302781471566}
+  - {fileID: -7457913537209669232}
   EditorParameters: []
   MasterBanks:
   - {fileID: -451327191515584886}
   StringsBanks:
   - {fileID: 9156371007720583041}
-  cacheTime: 638016266223935757
+  cacheTime: 638047894007880576
   cacheVersion: 131593
 --- !u!114 &1095516313120040851
 MonoBehaviour:
@@ -263,6 +454,26 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 100
+--- !u!114 &1391635797460913688
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Person.bank
+  m_EditorClassIdentifier: 
+  Path: FMOD/HorrorHouseMusic/Build/Desktop/Person.bank
+  Name: Person
+  StudioPath: bank:/Person
+  lastModified: 638047894007880576
+  FileSizes:
+  - Name: Desktop
+    Value: 177664
+  Exists: 1
 --- !u!114 &1441471316234527861
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -290,6 +501,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 100
+--- !u!114 &6042102302781471566
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Person Ambience/Footsteps/step2
+  m_EditorClassIdentifier: 
+  Path: event:/Person Ambience/Footsteps/step2
+  Guid:
+    Data1: 505749325
+    Data2: 1300516360
+    Data3: 1387739806
+    Data4: -285368371
+  Banks:
+  - {fileID: 1391635797460913688}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 400
 --- !u!114 &6843749512199582663
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -359,8 +597,8 @@ MonoBehaviour:
   Path: FMOD/HorrorHouseMusic/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638016266223935757
+  lastModified: 638047894007630285
   FileSizes:
   - Name: Desktop
-    Value: 1270
+    Value: 1684
   Exists: 1

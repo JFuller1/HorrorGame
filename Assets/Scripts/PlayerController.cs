@@ -11,9 +11,17 @@ public class PlayerController : MonoBehaviour
     float elapsedTime = 0f;
     float duration = 3f;
 
+    List<string> footsteps = new List<string>();
+    char[] sounds = { '1', '2', '3', '4', '5' };
+    int previousNum = -1;
+    int soundNum = -2;
+
     void Start()
     {
-
+        foreach(char c in sounds)
+        {
+            footsteps.Add($"event:/Person Ambience/Footsteps/step{c}");
+        }
     }
 
     void Update()
@@ -55,7 +63,7 @@ public class PlayerController : MonoBehaviour
                 {
 
                     //movement = true;
-
+                    PlayRandomFootstep();
                     StartCoroutine(PerformMovement(hit.transform.position));
                 }
             }
@@ -104,5 +112,19 @@ public class PlayerController : MonoBehaviour
         //yield return new WaitForSeconds(0.05f);
         movement = false;
         yield return null;
+    }
+
+    void PlayRandomFootstep()
+    {
+        if (previousNum != null)
+        {
+            do
+            {
+                soundNum = Random.Range(0, footsteps.Count);
+            } while (soundNum == previousNum);
+        }
+
+        previousNum = soundNum;
+        FMODUnity.RuntimeManager.PlayOneShot(footsteps[soundNum]);
     }
 }
