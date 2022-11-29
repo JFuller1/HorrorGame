@@ -135,6 +135,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 21285
+--- !u!114 &-6852934997561399072
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/House Ambience/drip
+  m_EditorClassIdentifier: 
+  Path: event:/House Ambience/drip
+  Guid:
+    Data1: -736308386
+    Data2: 1140159788
+    Data3: 642377624
+    Data4: 1884197218
+  Banks:
+  - {fileID: -2909219648046273570}
+  IsStream: 1
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 27888
 --- !u!114 &-6273096047333314501
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -189,6 +216,33 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 0
+--- !u!114 &-5955663737890003921
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/House Ambience/phone
+  m_EditorClassIdentifier: 
+  Path: event:/House Ambience/phone
+  Guid:
+    Data1: -402091968
+    Data2: 1223680799
+    Data3: 1074848699
+    Data4: 611680469
+  Banks:
+  - {fileID: -2909219648046273570}
+  IsStream: 1
+  Is3D: 1
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 27062
 --- !u!114 &-4468678051540672725
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -258,10 +312,10 @@ MonoBehaviour:
   Path: FMOD/HorrorHouseMusic/Build/Desktop/House.bank
   Name: House
   StudioPath: bank:/House
-  lastModified: 638047894007357083
+  lastModified: 638053160633265255
   FileSizes:
   - Name: Desktop
-    Value: 105600
+    Value: 444672
   Exists: 1
 --- !u!114 &-2125061196552609247
 MonoBehaviour:
@@ -317,33 +371,6 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 235
---- !u!114 &-1332014811268205157
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/House Ambience/LeakyFaucet-1CloseDistance-www.FesliyanStudios.com
-  m_EditorClassIdentifier: 
-  Path: event:/House Ambience/LeakyFaucet-1CloseDistance-www.FesliyanStudios.com
-  Guid:
-    Data1: -736308386
-    Data2: 1140159788
-    Data3: 642377624
-    Data4: 1884197218
-  Banks:
-  - {fileID: -2909219648046273570}
-  IsStream: 1
-  Is3D: 1
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 27888
 --- !u!114 &-1028462705103188731
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -359,7 +386,7 @@ MonoBehaviour:
   Path: FMOD/HorrorHouseMusic/Build/Desktop/Dialogue.bank
   Name: Dialogue
   StudioPath: bank:/Dialogue
-  lastModified: 638047894007146336
+  lastModified: 638053160633008107
   FileSizes:
   - Name: Desktop
     Value: 62400
@@ -379,7 +406,7 @@ MonoBehaviour:
   Path: FMOD/HorrorHouseMusic/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638047894007609650
+  lastModified: 638053160633516150
   FileSizes:
   - Name: Desktop
     Value: 2607808
@@ -413,19 +440,20 @@ MonoBehaviour:
   - {fileID: -3376063092957118851}
   - {fileID: 7831244551397282418}
   - {fileID: 1441471316234527861}
-  - {fileID: -1332014811268205157}
   - {fileID: -2125061196552609247}
   - {fileID: -8503710931926647787}
   - {fileID: -4468678051540672725}
   - {fileID: -1529867311472465701}
   - {fileID: 6042102302781471566}
   - {fileID: -7457913537209669232}
+  - {fileID: -5955663737890003921}
+  - {fileID: -6852934997561399072}
   EditorParameters: []
   MasterBanks:
   - {fileID: -451327191515584886}
   StringsBanks:
   - {fileID: 9156371007720583041}
-  cacheTime: 638047894007880576
+  cacheTime: 638053160633793779
   cacheVersion: 131593
 --- !u!114 &1095516313120040851
 MonoBehaviour:
@@ -469,7 +497,7 @@ MonoBehaviour:
   Path: FMOD/HorrorHouseMusic/Build/Desktop/Person.bank
   Name: Person
   StudioPath: bank:/Person
-  lastModified: 638047894007880576
+  lastModified: 638053160633793779
   FileSizes:
   - Name: Desktop
     Value: 177664
@@ -597,8 +625,8 @@ MonoBehaviour:
   Path: FMOD/HorrorHouseMusic/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638047894007630285
+  lastModified: 638053160633540512
   FileSizes:
   - Name: Desktop
-    Value: 1684
+    Value: 1736
   Exists: 1

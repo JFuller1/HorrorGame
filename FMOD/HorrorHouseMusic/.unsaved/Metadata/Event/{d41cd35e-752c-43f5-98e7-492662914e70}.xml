@@ -2,13 +2,13 @@
 <objects serializationModel="Studio.02.02.00">
 	<object class="Event" id="{d41cd35e-752c-43f5-98e7-492662914e70}">
 		<property name="name">
-			<value>LeakyFaucet-1CloseDistance-www.FesliyanStudios.com</value>
+			<value>drip</value>
 		</property>
 		<property name="outputFormat">
 			<value>2</value>
 		</property>
 		<relationship name="folder">
-			<destination>{dd7a0d28-2278-4d1b-a389-2c85631428e3}</destination>
+			<destination>{1237ebbb-fed2-40b9-933c-512caff50df3}</destination>
 		</relationship>
 		<relationship name="mixer">
 			<destination>{cf02369a-ef74-43f8-9336-8c740d29d27e}</destination>
