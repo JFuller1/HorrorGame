@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{76b9da03-efa8-4812-acf3-2ee745f84c1e}">
+		<property name="assetPath">
+			<value>24929__acclivity__phoneringing.mp3</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>27.062857142857144</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{8046fc6b-0229-4be9-bcd8-f8579814a267}</destination>
+		</relationship>
+	</object>
+</objects>
