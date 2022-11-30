@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.02.00">
 	<object class="Event" id="{d41cd35e-752c-43f5-98e7-492662914e70}">
 		<property name="name">
-			<value>LeakyFaucet-1CloseDistance-www.FesliyanStudios.com</value>
+			<value>drip</value>
 		</property>
 		<property name="outputFormat">
 			<value>2</value>
