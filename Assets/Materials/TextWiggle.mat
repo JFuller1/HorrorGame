@@ -38,14 +38,16 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Amplitude: 0.2
+    - _Amplitude: 0.3
     - _Float: 0
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _Timescale: 5
+    - _Timescale: 3
+    - _positionalMultiplier: 1.29
     m_Colors:
     - _Color: {r: 1, g: 0, b: 0, a: 1}
     - _Direction: {r: 0, g: 1, b: 0, a: 0}
+    - _Mult: {r: 14, g: 14, b: 0, a: 0}
     - _Vector2: {r: 0, g: 1, b: 0, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &7998184936290798738
