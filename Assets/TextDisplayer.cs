@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 
 [System.Serializable]
@@ -14,6 +15,8 @@ public class TextDisplayer : MonoBehaviour
 {
 
     public TextEffect[] textEffects;
+    public Dictionary<char,Material> textEffectsDict = new Dictionary<char, Material>();
+
 
     public Material defaultMat;
     public CustomFont font;
@@ -26,6 +29,9 @@ public class TextDisplayer : MonoBehaviour
 
     public int textRows = 2;
     int textcolumns;
+
+
+    private string effectCharacters = "";
 
     bool effect = false;
     Material mat;
@@ -46,7 +52,12 @@ public class TextDisplayer : MonoBehaviour
             fontTranslator.Add(charSet[i], font.characters[i]);
         }
 
-        textcolumns = Mathf.FloorToInt(Camera.main.orthographicSize * 2 * (16f / 9f));
+        for (int i = 0; i < textEffects.Length; i++)
+        {
+            textEffectsDict.Add(textEffects[i].character, textEffects[i].effect);
+        }
+
+        //textcolumns = Mathf.FloorToInt(Camera.main.orthographicSize * 2 * (16f / 9f));
 
         mat = defaultMat;
 
@@ -60,31 +71,45 @@ public class TextDisplayer : MonoBehaviour
 
     public void Setup()
     {
-        int i = 1;
+        //size of letter sprites
+        float ppu = font.characters[0].pixelsPerUnit;
 
-        for (int y = textRows; y > 0; y--)
+        //grid layout group handels sprites for me
+        GetComponent<GridLayoutGroup>().cellSize = Vector2.one * ppu;
+        
+        //spcaing from layout group
+        float spacing = GetComponent<GridLayoutGroup>().spacing.x;
+
+
+        //columns an rows of text
+        textcolumns = Mathf.FloorToInt(GetComponent<RectTransform>().rect.width / (ppu + spacing));
+        float rows = Mathf.FloorToInt(GetComponent<RectTransform>().rect.height / (ppu + spacing));
+
+        //total amount of characters
+        float total = textcolumns * rows;
+
+        //Initialize array of sprites
+        for (int i = 0; i < total; i++)
         {
-                for (int x = 0; x < textcolumns; x++)
-                {
-                    GameObject newObject = new GameObject(i.ToString());
-                    i++;
-                    SpriteRenderer renderer = newObject.AddComponent<SpriteRenderer>();
+            GameObject newObject = new GameObject(i.ToString(), typeof(RectTransform));
 
-                    //renderer.material = defaultMat;
+            SpriteRenderer image = newObject.AddComponent<SpriteRenderer>();
 
-                    float xPos = x - (textcolumns / 2f) + 0.5f;
-                    newObject.transform.position = new Vector2(xPos, y - (Camera.main.orthographicSize + 0.5f));
-                    newObject.transform.parent = Camera.main.transform;
+            newObject.layer = 5;
 
-                renderer.sortingLayerName = "Text";
+            image.sortingLayerName = "Text";
+            image.transform.SetParent(transform);
 
-                    sprites.Add(renderer);
-                }
+            newObject.transform.localScale = Vector3.one * ppu;
+
+            sprites.Add(image);
         }
+
     }
 
     public void Clear()
     {
+        //go through each sprite and remove the visible element
         foreach (SpriteRenderer sp in sprites)
         {
             sp.sprite = null;
@@ -93,26 +118,16 @@ public class TextDisplayer : MonoBehaviour
 
     public void UpdateText(string text)
     {
-
+        //remove previous text
         Clear();
 
-        // Play sound if its a letter
+        //process the string to make them align properly
+        string formatedText = TextEffects(ProcessedString(text));
 
-
-
-        /*
-              ______     ____  _             
-             |___  /    |  _ \| |            
-                / / __ _| |_) | | ___   ___  
-               / / / _` |  _ <| |/ _ \ / _ \ 
-              / /_| (_| | |_) | | (_) | (_) |
-             /_____\__,_|____/|_|\___/ \___/                                  
-             put the sound trigger for the text sounds here
-        */
-
-        string formatedText = ProcessedString(text);
+        
 
         //TextEffectsWhileTyping(text);
+
 
         for (int i = 0; i < formatedText.Length; i++)
         {
@@ -169,7 +184,7 @@ public class TextDisplayer : MonoBehaviour
 
     public void TextEffectsWhileTyping(string inputString)
     {
-
+        Debug.Log("typing effects");
         foreach (TextEffect textEffect in textEffects)
         {
 
@@ -185,6 +200,7 @@ public class TextDisplayer : MonoBehaviour
                 {
                     mat = defaultMat;
                 }
+
             }
 
         }
@@ -228,14 +244,26 @@ public class TextDisplayer : MonoBehaviour
 
     public string ProcessedString(string inputString)
     {
+
+        int effectAmount = 0;
+
+        //Debug.Log(inputString);
+
         string outString = "";
         string compoundString = "";
         string tempString = inputString.Trim(); ;
 
+
+
         foreach (TextEffect effect in textEffects)
         {
-            tempString = tempString.Replace(effect.character.ToString(), "");
+            //tempString = tempString.Replace(effect.character.ToString(), "");
+            effectCharacters += effect.character;
         }
+
+
+
+        //Debug.Log(effectAmount);
 
         string[] tempArray;
 
@@ -252,12 +280,25 @@ public class TextDisplayer : MonoBehaviour
             {
                 if (compoundString.Length + str.Length <= textcolumns)
                 {
+                    effectAmount = 0;
+
                     compoundString += str + " ";
                 }
                 else
                 {
                     compoundString = compoundString.Trim();
-                    compoundString = compoundString.PadRight(textcolumns, ' ');
+
+                    foreach (char character in compoundString)
+                    {
+                        if (effectCharacters.Contains(character))
+                        {
+                            effectAmount += 1;
+                        }
+                    }
+
+                    compoundString = compoundString.PadRight(textcolumns+effectAmount, ' ');
+
+
 
                     outString += compoundString;
                     compoundString = str + " ";
@@ -265,7 +306,18 @@ public class TextDisplayer : MonoBehaviour
             }
 
             compoundString = compoundString.Trim();
-            compoundString = compoundString.PadRight(textcolumns, ' ');
+
+            foreach (char character in compoundString)
+            {
+                if (effectCharacters.Contains(character))
+                {
+                    effectAmount += 1;
+                }
+            }
+
+            compoundString = compoundString.PadRight(textcolumns + effectAmount, ' ');
+
+
 
             outString += compoundString;
 
@@ -273,4 +325,36 @@ public class TextDisplayer : MonoBehaviour
 
         return outString;
     }
+
+    public string TextEffects(string processedString)
+    {
+
+        mat = defaultMat;
+        effect = false;
+        for (int i = 0; i < processedString.Length; i++)
+        {
+            if (effectCharacters.Contains(processedString[i]))
+            {
+                if(effect == false)
+                {
+                    mat = textEffectsDict[processedString[i]];
+                }
+                else
+                {
+                    mat = defaultMat;
+                }
+
+                effect = !effect;
+
+                processedString = processedString.Remove(i,1);
+            }
+
+            sprites[i].material = mat;
+            mat.SetColor("_Color", matColor);
+        }
+
+        return processedString;
+
+    }
+
 }

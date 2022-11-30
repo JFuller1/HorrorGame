@@ -1,7 +1,7 @@
 {
   "dialog": [
     {
-      "text": "cab ~driver~ dialog over *here*",
+      "text": "~cab~ *driver* dialog ~over~ *here*",
       "voice": "driver",
       "delay": 0.1,
       "volume": 0.7,
