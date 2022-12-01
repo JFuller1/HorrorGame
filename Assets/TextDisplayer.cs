@@ -57,6 +57,11 @@ public class TextDisplayer : MonoBehaviour
             textEffectsDict.Add(textEffects[i].character, textEffects[i].effect);
         }
 
+        foreach (TextEffect effect in textEffects)
+        {
+            effectCharacters += effect.character;
+        }
+
         //textcolumns = Mathf.FloorToInt(Camera.main.orthographicSize * 2 * (16f / 9f));
 
         mat = defaultMat;
@@ -254,31 +259,32 @@ public class TextDisplayer : MonoBehaviour
         string tempString = inputString.Trim(); ;
 
 
+        //Debug.Log("1234567890123456".Length);
 
-        foreach (TextEffect effect in textEffects)
-        {
-            //tempString = tempString.Replace(effect.character.ToString(), "");
-            effectCharacters += effect.character;
-        }
+        //Debug.Log(textcolumns);
 
+        //Debug.Log("1234567890123456".Length <= textcolumns);
 
+        //counts total amount of effects in text
+        effectAmount = EffectsInString(tempString);
 
-        //Debug.Log(effectAmount);
-
-        string[] tempArray;
-
-        tempArray = tempString.Split(' ');
-
-        if (tempString.Length <= textcolumns)
+        if (tempString.Length - effectAmount <= textcolumns)
         {
             outString = tempString;
         }
         else
         {
+            //split string into individual words
+            string[] tempArray = tempString.Split(' ');
 
+            //go through each word
             foreach (string str in tempArray)
             {
-                if (compoundString.Length + str.Length <= textcolumns)
+                //gets all effects in current line
+                int effectsInWord = EffectsInString(str) + EffectsInString(compoundString);
+
+                //checks if another word could fit
+                if (compoundString.Length + (str.Length - effectsInWord) <= textcolumns)
                 {
                     effectAmount = 0;
 
@@ -286,17 +292,13 @@ public class TextDisplayer : MonoBehaviour
                 }
                 else
                 {
+                    effectsInWord = 0;
+
                     compoundString = compoundString.Trim();
 
-                    foreach (char character in compoundString)
-                    {
-                        if (effectCharacters.Contains(character))
-                        {
-                            effectAmount += 1;
-                        }
-                    }
+                    effectAmount = EffectsInString(compoundString);
 
-                    compoundString = compoundString.PadRight(textcolumns+effectAmount, ' ');
+                    compoundString = compoundString.PadRight(textcolumns + effectAmount, ' ');
 
 
 
@@ -307,13 +309,7 @@ public class TextDisplayer : MonoBehaviour
 
             compoundString = compoundString.Trim();
 
-            foreach (char character in compoundString)
-            {
-                if (effectCharacters.Contains(character))
-                {
-                    effectAmount += 1;
-                }
-            }
+            effectAmount = EffectsInString(compoundString);
 
             compoundString = compoundString.PadRight(textcolumns + effectAmount, ' ');
 
@@ -321,6 +317,7 @@ public class TextDisplayer : MonoBehaviour
 
             outString += compoundString;
 
+            Debug.Log(outString);
         }
 
         return outString;
@@ -354,6 +351,23 @@ public class TextDisplayer : MonoBehaviour
         }
 
         return processedString;
+
+    }
+
+    public int EffectsInString(string str)
+    {
+
+        int outInt = 0;
+
+        foreach (char character in str)
+        {
+            if (effectCharacters.Contains(character))
+            {
+                outInt += 1;
+            }
+        }
+
+        return outInt;
 
     }
 
