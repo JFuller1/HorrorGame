@@ -4989,7 +4989,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1688096051
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5033,7 +5033,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1705283034
 GameObject:
@@ -5822,7 +5822,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 256, y: 48}
+  m_SizeDelta: {x: 150.628, y: 48}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &2004789181
 MonoBehaviour:
@@ -5844,7 +5844,7 @@ MonoBehaviour:
   - character: 47
     effect: {fileID: 2100000, guid: c16bd82fa56ce4147a7c10f9b7e12739, type: 2}
   defaultMat: {fileID: 2100000, guid: 8a009050ce38e8d4fa259068cc8323d5, type: 2}
-  font: {fileID: 11400000, guid: ae0e92f873fe83445a3b6791e845787d, type: 2}
+  font: {fileID: 11400000, guid: ac896da201062d447985d712c3842989, type: 2}
   charSet: ABCDEFGHIJKLMNOPQRSTUVWXYZ.,!?
   sprites: []
   textRows: 2

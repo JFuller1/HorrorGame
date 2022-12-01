@@ -40,10 +40,10 @@ Material:
     m_Floats:
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _rotation: -8.82
+    - _rotation: 22.5
     m_Colors:
     - _Color: {r: 0, g: 0, b: 0, a: 1}
-    - _Offset: {r: 0.025, g: 0.02, b: 0, a: 0}
+    - _Offset: {r: 0, g: 0, b: 0, a: 0}
     - _offset: {r: 0.01, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &4672581342464995017
