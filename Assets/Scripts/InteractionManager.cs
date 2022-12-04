@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public enum InteractionTypes
 {
@@ -26,12 +27,18 @@ public class InteractionManager : MonoBehaviour
 
     public DialogManager dialogManager;
 
-    public ViewManager viewManager;
+    //public ViewManager viewManager;
 
-    public SpriteRenderer cursorGraphic;
+    public Image cursorGraphic;
     private InteractionTypes currentType;
 
+    public LayerMask mask;
+
     Dictionary<InteractionTypes, Sprite> iconDictionary = new Dictionary<InteractionTypes, Sprite>();
+
+    Camera cam;
+
+    private float UpscaledMouse;
 
     private void Awake()
     {
@@ -45,42 +52,22 @@ public class InteractionManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        cam = Camera.main;
+        UpscaledMouse = Screen.width / 256;
     }
 
     void Update()
     {
+        Ray ray = cam.ScreenPointToRay(Input.mousePosition/UpscaledMouse);
 
-        RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
-
-        if (hit.collider != null)
+        if(Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, mask))
         {
-            if (hit.collider.gameObject.tag == "Interactable")
+            Interactable interactionObject = hit.collider.gameObject.GetComponent<Interactable>();
+            cursorGraphic.sprite = iconDictionary[interactionObject.interactionType];
+
+            if (Input.GetMouseButtonDown(0))
             {
-                GameObject interactionObject = hit.collider.gameObject;
-
-                cursorGraphic.sprite = iconDictionary[interactionObject.GetComponent<Interactable>().interactionType];
-                currentType = interactionObject.GetComponent<Interactable>().interactionType;
-
-                if (Input.GetMouseButtonDown(0))
-                {
-                    switch (currentType)
-                    {
-                        case InteractionTypes.View:
-                            viewManager.TriggerView(interactionObject.GetComponent<ViewContainer>().coords);
-                            break;
-                        case InteractionTypes.Move:
-
-                            break;
-                        case InteractionTypes.Talk:
-                            dialogManager.jsonFile = interactionObject.GetComponent<DialogueContainer>().dialogue;
-                            dialogManager.TriggerDialogue();
-                            break;
-                        default:
-                            break;
-                    }
-                }
-
+                interactionObject.triggerEvents.Invoke();
             }
 
         }
