@@ -72,7 +72,7 @@ public class DialogManager : MonoBehaviour
 
             coroutine = PrintDialog(dialogStrings.dialog[currentMessage].text, dialogStrings.dialog[currentMessage].delay, 1f);
 
-            Debug.Log("starting coroutine" + ", engaged = " + engaged + ", typing = " + typing);
+            //Debug.Log("starting coroutine" + ", engaged = " + engaged + ", typing = " + typing);
             StartCoroutine(coroutine);
 
 
@@ -88,11 +88,14 @@ public class DialogManager : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(0))
             {
-                
+
+
+                Debug.Log("click revived");
+                //Debug.Log("stopping coroutine" + ", engaged = " + engaged + ", typing = " + typing);
 
                 if (typing)
                 {
-                    Debug.Log("stopping coroutine" + ", engaged = " + engaged + ", typing = " + typing);
+                    //Debug.Log("stopping coroutine" + ", engaged = " + engaged + ", typing = " + typing);
                     StopCoroutine(coroutine);
                     textDisplayer.UpdateText(dialogStrings.dialog[currentMessage].text.ToUpper());
                     //textDisplayer.TextEffectsWhileSkipping(dialogStrings.dialog[currentMessage].text.ToUpper());
@@ -143,8 +146,7 @@ public class DialogManager : MonoBehaviour
             printText += character;
 
             textDisplayer.UpdateText(printText.ToUpper());
-            //textDisplayer.TextEffectsWhileTyping(printText.ToUpper());
-            //textDisplayer.TextEffectsWhileSkipping(printText.ToUpper());
+
             if (punctuation.Contains(character))
             {
                 yield return new WaitForSeconds(punctuationDelay);

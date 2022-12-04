@@ -40,6 +40,8 @@ public class InteractionManager : MonoBehaviour
 
     private float UpscaledMouse;
 
+    Interactable interactionObject;
+
     private void Awake()
     {
         for (int i = 0; i < stateIcon.Length; i++)
@@ -62,12 +64,13 @@ public class InteractionManager : MonoBehaviour
 
         if(Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, mask))
         {
-            Interactable interactionObject = hit.collider.gameObject.GetComponent<Interactable>();
+            interactionObject = hit.collider.gameObject.GetComponent<Interactable>();
             cursorGraphic.sprite = iconDictionary[interactionObject.interactionType];
 
             if (Input.GetMouseButtonDown(0))
             {
-                interactionObject.triggerEvents.Invoke();
+                Debug.Log("interaction triggered");
+                StartCoroutine(TriggerEvents());
             }
 
         }
@@ -77,4 +80,12 @@ public class InteractionManager : MonoBehaviour
         }
 
     }
+
+    IEnumerator TriggerEvents()
+    {
+        yield return new WaitForEndOfFrame();
+        //yield return new WaitForFixedUpdate();
+        interactionObject.triggerEvents.Invoke();
+    }
+
 }
