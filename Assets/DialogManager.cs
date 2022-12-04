@@ -38,30 +38,22 @@ public class DialogManager : MonoBehaviour
 
     private void Awake()
     {
-        dialogStrings = JsonUtility.FromJson<DialogStrings>(jsonFile.text);
-        Debug.Log(dialogStrings.dialog[0].color);
+        //dialogStrings = JsonUtility.FromJson<DialogStrings>(jsonFile.text);
+        //Debug.Log(dialogStrings.dialog[0].color);
 
-        dialogStrings = JsonUtility.FromJson<DialogStrings>(jsonFile.text);
+        //dialogStrings = JsonUtility.FromJson<DialogStrings>(jsonFile.text);
 
-        foreach(Dialog dialog in dialogStrings.dialog)
-        {
-            Debug.Log($"text: {dialog.text}\n" +
-                $"voice: {dialog.voice}\n" +
-                $"delay: {dialog.delay}"
-               );
-        }
-
-        //second value used to be 0.2
-        coroutine = PrintDialog(dialogStrings.dialog[currentMessage].text, dialogStrings.dialog[currentMessage].delay, 1f);
+        ////second value used to be 0.2
+        //coroutine = PrintDialog(dialogStrings.dialog[currentMessage].text, dialogStrings.dialog[currentMessage].delay, 1f);
     }
 
     private void Start()
     {
         //StartCoroutine(coroutine);
-        TriggerDialogue();
+        //TriggerDialogue(jsonFile);
     }
 
-    public void TriggerDialogue()
+    public void TriggerDialogue(TextAsset dialogueFile)
     {
         if (!engaged)
         {
@@ -70,7 +62,7 @@ public class DialogManager : MonoBehaviour
 
             engaged = true;
 
-            dialogStrings = JsonUtility.FromJson<DialogStrings>(jsonFile.text);
+            dialogStrings = JsonUtility.FromJson<DialogStrings>(dialogueFile.text);
 
             textDisplayer.InitializeVoice(dialogStrings.dialog[currentMessage].voice, dialogStrings.dialog[currentMessage].volume);
 
@@ -80,8 +72,11 @@ public class DialogManager : MonoBehaviour
 
             coroutine = PrintDialog(dialogStrings.dialog[currentMessage].text, dialogStrings.dialog[currentMessage].delay, 1f);
 
+            Debug.Log("starting coroutine" + ", engaged = " + engaged + ", typing = " + typing);
             StartCoroutine(coroutine);
-            
+
+
+
         }
 
     }
@@ -97,6 +92,7 @@ public class DialogManager : MonoBehaviour
 
                 if (typing)
                 {
+                    Debug.Log("stopping coroutine" + ", engaged = " + engaged + ", typing = " + typing);
                     StopCoroutine(coroutine);
                     textDisplayer.UpdateText(dialogStrings.dialog[currentMessage].text.ToUpper());
                     //textDisplayer.TextEffectsWhileSkipping(dialogStrings.dialog[currentMessage].text.ToUpper());
