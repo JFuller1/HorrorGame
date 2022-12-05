@@ -1,16 +1,34 @@
 using System.Collections;
 using System.Collections.Generic;
+using FMODUnity;
 using UnityEngine;
 
 public class SoundController : MonoBehaviour
 {
-    public string sound = "";
-    FMOD.Studio.EventInstance soundEvent;
-
-    // Start is called before the first frame update
+    public EventReference audio;
+    public string sound;
+    FMOD.Studio.EventInstance audioEvent;
     void Start()
     {
-        soundEvent = FMODUnity.RuntimeManager.CreateInstance(soundEvent);
+        audioEvent = FMODUnity.RuntimeManager.CreateInstance(sound);
+        //remove once conditional works
+        audioEvent.start();
+       
+    }
+
+    void Update()
+    {
+        FMODUnity.RuntimeManager.AttachInstanceToGameObject(audioEvent, GetComponent<Transform>(), GetComponent<Rigidbody>());
+    }
+
+    void PlaySound() 
+    { 
+    
+    }
+
+    void StopSound()
+    {
+
     }
 
 }
