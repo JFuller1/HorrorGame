@@ -54,6 +54,30 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 330
+--- !u!114 &-8494449563977268737
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/OutsideAmbience/WallMuffle
+  m_EditorClassIdentifier: 
+  Name: WallMuffle
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 3627043454
+    data2: 373877497
+  Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
 --- !u!114 &-7611676069212118244
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -361,10 +385,10 @@ MonoBehaviour:
   Path: FMOD/HorrorHouseMusic/Build/Desktop/House.bank
   Name: House
   StudioPath: bank:/House
-  lastModified: 638060903702407365
+  lastModified: 638061245704360632
   FileSizes:
   - Name: Desktop
-    Value: 3947744
+    Value: 3948256
   Exists: 1
 --- !u!114 &-2125061196552609247
 MonoBehaviour:
@@ -418,6 +442,7 @@ MonoBehaviour:
   IsOneShot: 0
   Parameters:
   - {fileID: -6002104200020257142}
+  - {fileID: -8494449563977268737}
   MinDistance: 1
   MaxDistance: 20
   Length: 281000
@@ -463,7 +488,7 @@ MonoBehaviour:
   Path: FMOD/HorrorHouseMusic/Build/Desktop/Dialogue.bank
   Name: Dialogue
   StudioPath: bank:/Dialogue
-  lastModified: 638060903701920036
+  lastModified: 638061245703583213
   FileSizes:
   - Name: Desktop
     Value: 62400
@@ -483,7 +508,7 @@ MonoBehaviour:
   Path: FMOD/HorrorHouseMusic/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638060903702699836
+  lastModified: 638061245704844995
   FileSizes:
   - Name: Desktop
     Value: 2607808
@@ -531,7 +556,7 @@ MonoBehaviour:
   - {fileID: -451327191515584886}
   StringsBanks:
   - {fileID: 9156371007720583041}
-  cacheTime: 638060903702991597
+  cacheTime: 638061245705235913
   cacheVersion: 131593
 --- !u!114 &1095516313120040851
 MonoBehaviour:
@@ -575,7 +600,7 @@ MonoBehaviour:
   Path: FMOD/HorrorHouseMusic/Build/Desktop/Person.bank
   Name: Person
   StudioPath: bank:/Person
-  lastModified: 638060903702991597
+  lastModified: 638061245705235913
   FileSizes:
   - Name: Desktop
     Value: 177664
@@ -703,7 +728,7 @@ MonoBehaviour:
   Path: FMOD/HorrorHouseMusic/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638060903702729860
+  lastModified: 638061245704885167
   FileSizes:
   - Name: Desktop
     Value: 1938

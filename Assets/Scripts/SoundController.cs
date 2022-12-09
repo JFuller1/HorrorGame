@@ -12,18 +12,22 @@ public class SoundController : MonoBehaviour
     Transform slLocation;
 
     [Header("Occlusion Options")]
-    [Range(0,1)]
-    public float occlusion;
-
     public LayerMask OcclusionLayer = 1;
 
     bool isOn;
     bool soundPlaying;
 
+    public bool playOnStart;
+
     void Start()
     {
         slLocation = GameObject.FindObjectOfType<StudioListener>().transform;
         audioEvent = FMODUnity.RuntimeManager.CreateInstance(audio);
+
+        if (playOnStart)
+        {
+            PlaySound();
+        }
     }
 
     void Update()
