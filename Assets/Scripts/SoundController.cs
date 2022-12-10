@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using FMODUnity;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class SoundController : MonoBehaviour
 {
@@ -14,10 +15,13 @@ public class SoundController : MonoBehaviour
     [Header("Occlusion Options")]
     public LayerMask OcclusionLayer = 1;
 
-    bool isOn;
+    bool isOn = false;
     bool soundPlaying;
 
     public bool playOnStart;
+
+    public UnityEvent ToggleOn;
+    public UnityEvent ToggleOff;
 
     void Start()
     {
@@ -55,14 +59,9 @@ public class SoundController : MonoBehaviour
     void Occlusion(float value)
     {
         audioEvent.setParameterByName("WallMuffle", value);
-
-        float val;
-        audioEvent.getParameterByName("WallMuffle", out val);
-
-        Debug.Log(val);
     }
 
-    IEnumerator Delay(int delay)
+    IEnumerator Delay(float delay)
     {
         yield return new WaitForSeconds(delay);
     }
@@ -80,16 +79,44 @@ public class SoundController : MonoBehaviour
         audioEvent.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
     }
 
-    void ToggleSound()
+    public void ToggleSound()
     {
         if (soundPlaying == true)
         {
+            ToggleOn.Invoke();
             soundPlaying = false;
         }
         else
         {
+            ToggleOff.Invoke();
             soundPlaying = true;
         }
     }
 
+
+    //TOGGLE FUNCTIONS
+
+    float open = 0f;
+
+    public void OpenWindow()
+    {
+        while(open < 1)
+        {
+            open += 0.05f;
+            audioEvent.setParameterByName("Muffled", open);
+            StartCoroutine(Delay(0.1f));
+        }
+
+        //play window opening sound too
+    }
+
+    public void CloseWindow()
+    {
+        while (open > 0)
+        {
+            open -= 0.05f;
+            audioEvent.setParameterByName("Muffled", open);
+            StartCoroutine(Delay(0.1f));
+        }
+    }
 }
