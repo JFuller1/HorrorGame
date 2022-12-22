@@ -1,0 +1,39 @@
+{
+  "dialog": [
+    {
+      "text": "*helo there my friend",
+      "voice": "driver",
+      "delay": 0.1,
+      "volume": 0.7,
+      "color": "white"
+    },
+    {
+      "text": "I look at the man with a slight grin",
+      "voice": "player",
+      "delay": 0.2,
+      "volume": 0.5,
+      "color": "white"
+    },
+    {
+      "text": "~his expression goes sour~",
+      "voice": "none",
+      "delay": 0,
+      "volume": 0,
+      "color": "white"
+    },
+    {
+      "text": "*i dont very much apreacite the way you look at me",
+      "voice": "driver",
+      "delay": 0.1,
+      "volume": 1,
+      "color": "white"
+    },
+    {
+      "text": "*just because i am a cat it does not mean i am silly*",
+      "voice": "driver",
+      "delay": 0.05,
+      "volume": 0.7,
+      "color": "white"
+    }
+  ]
+}

@@ -122,9 +122,13 @@ public class DialogManager : MonoBehaviour
                     }
                     else
                     {
-                        engaged = false;
+                        
 
                         textDisplayer.Clear();
+
+                        //engaged = false;
+
+                        Invoke("changeBool", 1);
 
                     }
 
@@ -133,6 +137,11 @@ public class DialogManager : MonoBehaviour
             }
         }
 
+    }
+
+    private void changeBool()
+    {
+        engaged = !engaged;
     }
 
     IEnumerator PrintDialog(string text, float delay, float punctuationDelay)

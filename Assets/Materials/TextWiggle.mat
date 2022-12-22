@@ -45,7 +45,7 @@ Material:
     - _Timescale: 3
     - _positionalMultiplier: 1.29
     m_Colors:
-    - _Color: {r: 1, g: 0, b: 0, a: 1}
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _Direction: {r: 0, g: 1, b: 0, a: 0}
     - _Mult: {r: 14, g: 14, b: 0, a: 0}
     - _Vector2: {r: 0, g: 1, b: 0, a: 0}
