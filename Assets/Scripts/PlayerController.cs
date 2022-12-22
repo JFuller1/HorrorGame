@@ -7,6 +7,8 @@ public class PlayerController : MonoBehaviour
     bool movement = false;
     public Transform tr;
 
+    public LayerMask mask;
+
     Vector3 target;
     float elapsedTime = 0f;
     float duration = 3f;
@@ -54,7 +56,7 @@ public class PlayerController : MonoBehaviour
         {
             RaycastHit hit;
 
-            if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, 1f))
+            if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, 1f, mask))
             {
 
                 target = hit.transform.position;
@@ -88,7 +90,7 @@ public class PlayerController : MonoBehaviour
             tr.rotation = Quaternion.Lerp(start, targetRotation, Mathf.SmoothStep(0,1, progress));
             
             yield return null;
-            Debug.Log(progress);
+            //Debug.Log(progress);
         }
         movement = false;
         yield return null;
