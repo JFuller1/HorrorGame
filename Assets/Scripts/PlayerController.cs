@@ -18,6 +18,8 @@ public class PlayerController : MonoBehaviour
     int previousNum = -1;
     int soundNum = -2;
 
+    float currentRotation = 0, rotationOffset = 0;
+
     void Start()
     {
         foreach(char c in sounds)
@@ -47,6 +49,9 @@ public class PlayerController : MonoBehaviour
             Quaternion target = Quaternion.Euler(0, tr.eulerAngles.y + 90f, 0);
             StartCoroutine(PerformRotation(target));
         }
+
+        currentRotation = tr.eulerAngles.y - rotationOffset;
+
     }
 
     void HandleMovement()
@@ -60,6 +65,8 @@ public class PlayerController : MonoBehaviour
             {
 
                 target = hit.transform.position;
+                rotationOffset = hit.transform.eulerAngles.y;
+
 
                 if (hit.transform.CompareTag("Node"))
                 {
@@ -67,7 +74,14 @@ public class PlayerController : MonoBehaviour
                     //movement = true;
                     PlayRandomFootstep();
                     StartCoroutine(PerformMovement(hit.transform.position));
+
+
+                    Quaternion rotTarget = Quaternion.Euler(0, currentRotation + hit.transform.eulerAngles.y, 0);
+                    StartCoroutine(PerformRotation(rotTarget));
                 }
+
+                
+
             }
         }
 
