@@ -44,6 +44,8 @@ public class TextDisplayer : MonoBehaviour
     private float volume;
     FMOD.Studio.Bus dialogueBus;
 
+    private string outputText = "";
+
     private void Awake()
     {
         dialogueBus = FMODUnity.RuntimeManager.GetBus("bus:/Dialogue");
@@ -62,16 +64,9 @@ public class TextDisplayer : MonoBehaviour
             effectCharacters += effect.character;
         }
 
-        //textcolumns = Mathf.FloorToInt(Camera.main.orthographicSize * 2 * (16f / 9f));
-
         mat = defaultMat;
 
         Setup();
-    }
-
-    public void Update()
-    {
-
     }
 
     public void Setup()
@@ -129,19 +124,22 @@ public class TextDisplayer : MonoBehaviour
         //process the string to make them align properly
         string formatedText = TextEffects(ProcessedString(text));
 
-        
+        if (formatedText.Length <= sprites.Count)
+        {
 
-        //TextEffectsWhileTyping(text);
+            outputText = formatedText;
+
+        }
 
 
-        for (int i = 0; i < formatedText.Length; i++)
+        for (int i = 0; i < outputText.Length; i++)
         {
 
                 Sprite temp;
 
-                if (charSet.Contains(formatedText[i]))
+                if (charSet.Contains(outputText[i]))
                 {
-                    fontTranslator.TryGetValue(formatedText[i], out temp);
+                    fontTranslator.TryGetValue(outputText[i], out temp);
                     sprites[i].sprite = temp;
                 }
                 else
@@ -152,6 +150,7 @@ public class TextDisplayer : MonoBehaviour
 
         }
 
+        //play sound
         if (System.Char.IsLetter(text[text.Length - 1]))
         {
             TextSound();
@@ -186,7 +185,7 @@ public class TextDisplayer : MonoBehaviour
         }
     }
 
-
+    /*
     public void TextEffectsWhileTyping(string inputString)
     {
         Debug.Log("typing effects");
@@ -246,24 +245,15 @@ public class TextDisplayer : MonoBehaviour
             mat.SetColor("_Color", matColor);
         }
     }
-
+        */
     public string ProcessedString(string inputString)
     {
 
         int effectAmount = 0;
 
-        //Debug.Log(inputString);
-
         string outString = "";
         string compoundString = "";
         string tempString = inputString.Trim(); ;
-
-
-        //Debug.Log("1234567890123456".Length);
-
-        //Debug.Log(textcolumns);
-
-        //Debug.Log("1234567890123456".Length <= textcolumns);
 
         //counts total amount of effects in text
         effectAmount = EffectsInString(tempString);
@@ -313,11 +303,8 @@ public class TextDisplayer : MonoBehaviour
 
             compoundString = compoundString.PadRight(textcolumns + effectAmount, ' ');
 
-
-
             outString += compoundString;
 
-            Debug.Log(outString);
         }
 
         return outString;
@@ -346,7 +333,9 @@ public class TextDisplayer : MonoBehaviour
                 processedString = processedString.Remove(i,1);
             }
 
-            sprites[i].material = mat;
+            if (i < sprites.Count)
+                sprites[i].material = mat;
+
             mat.SetColor("_Color", matColor);
         }
 

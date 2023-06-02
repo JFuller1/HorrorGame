@@ -1,0 +1,39 @@
+{
+  "dialog": [
+    {
+      "text": "I'm a ~Wacky~ Clown",
+      "voice": "driver",
+      "delay": 0.1,
+      "volume": 0.7,
+      "color": "white"
+    },
+    {
+      "text": "How wacky are you?",
+      "voice": "player",
+      "delay": 0.2,
+      "volume": 0.5,
+      "color": "red"
+    },
+    {
+      "text": "...",
+      "voice": "driver",
+      "delay": 1,
+      "volume": 0,
+      "color": "white"
+    },
+    {
+      "text": "Look at me, *I'm soooo wacky*",
+      "voice": "driver",
+      "delay": 0.1,
+      "volume": 1,
+      "color": "white"
+    },
+    {
+      "text": "I guess this guy is pretty wacky",
+      "voice": "player",
+      "delay": 0.05,
+      "volume": 0.7,
+      "color": "red"
+    }
+  ]
+}

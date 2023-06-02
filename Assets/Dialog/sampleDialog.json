@@ -29,7 +29,7 @@
       "color": "silver"
     },
     {
-      "text": "a really long string of dialog to see if",
+      "text": "a really long string of dialog to see if we can now handle it because we couldnt before and it needs to be even longer because the text box is pretty big",
       "voice": "driver",
       "delay": 0.05,
       "volume": 0.7,
