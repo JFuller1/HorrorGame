@@ -21,6 +21,8 @@ public struct StateIcon
 public class InteractionManager : MonoBehaviour
 {
 
+    public float interactionDistance = 1.5f;
+
     public Sprite defaultCursor;
 
     public StateIcon[] stateIcon;
@@ -62,17 +64,26 @@ public class InteractionManager : MonoBehaviour
     {
         Ray ray = cam.ScreenPointToRay(Input.mousePosition/UpscaledMouse);
 
-        if(Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, mask))
+        if (Physics.Raycast(ray, out RaycastHit hit, interactionDistance, mask))
         {
-            interactionObject = hit.collider.gameObject.GetComponent<Interactable>();
-            cursorGraphic.sprite = iconDictionary[interactionObject.interactionType];
 
-            if (Input.GetMouseButtonDown(0))
+            if (hit.transform.CompareTag("Interactable"))
             {
-                Debug.Log("interaction triggered");
-                StartCoroutine(TriggerEvents());
-            }
 
+                interactionObject = hit.collider.gameObject.GetComponent<Interactable>();
+                cursorGraphic.sprite = iconDictionary[interactionObject.interactionType];
+
+                if (Input.GetMouseButtonDown(0))
+                {
+                    Debug.Log("interaction triggered");
+                    StartCoroutine(TriggerEvents());
+                }
+
+            }
+            else
+            {
+                cursorGraphic.sprite = defaultCursor;
+            }
         }
         else
         {
@@ -84,7 +95,7 @@ public class InteractionManager : MonoBehaviour
     IEnumerator TriggerEvents()
     {
         yield return new WaitForEndOfFrame();
-        //yield return new WaitForFixedUpdate();
+        
         interactionObject.triggerEvents.Invoke();
     }
 
