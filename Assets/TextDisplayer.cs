@@ -102,7 +102,10 @@ public class TextDisplayer : MonoBehaviour
 
             newObject.transform.localScale = Vector3.one * ppu;
 
+            newObject.transform.localPosition = new Vector3(newObject.transform.localPosition.x, newObject.transform.localPosition.y, 0);
+
             sprites.Add(image);
+
         }
 
     }
