@@ -5,8 +5,6 @@ using UnityEngine;
 public class MouseCursor : MonoBehaviour
 {
 
-    public Camera cam;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -16,7 +14,7 @@ public class MouseCursor : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector2 mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
+        Vector2 mousePos = Input.mousePosition;
         transform.position = mousePos;
     }
 }
